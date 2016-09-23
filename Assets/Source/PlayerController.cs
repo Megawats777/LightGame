@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerController : MonoBehaviour
@@ -34,6 +35,16 @@ public class PlayerController : MonoBehaviour
     {
         // Set movement axis values
         setMovementAxisValues();
+
+        // DEBUG FUNCTION
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            SceneManager.LoadScene("Scene_TestArea_01");
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     // Called before physics calculations
