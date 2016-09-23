@@ -13,8 +13,8 @@ GameObject:
   - 124: {fileID: 12487562}
   - 81: {fileID: 8118754}
   - 114: {fileID: 11416966}
-  - 114: {fileID: 11448108}
   - 114: {fileID: 11452498}
+  - 114: {fileID: 11448108}
   m_Layer: 0
   m_Name: GameCamera
   m_TagString: MainCamera
