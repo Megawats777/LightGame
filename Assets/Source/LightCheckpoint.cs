@@ -12,19 +12,39 @@ public class LightCheckpoint : MonoBehaviour
     // The brightness change speed
     public float lightBrightnessChangeSpeed = 5.0f;
 
+    // The particle system to play when activated
+    [SerializeField]
+    private GameObject activatedParticleSystem;
+
+    // Reference to the sphere collider component
+    private SphereCollider checkpointCollider;
+
     // Reference to the light component
     private Light checkpointLight;
+
+    // Reference to the checkpoint mesh
+    private Renderer checkpointMesh;
 
     // Called before start
     public void Awake()
     {
+        // Get the sphere collider component
+        checkpointCollider = GetComponent<SphereCollider>();
+
         // Get the light component
         checkpointLight = GetComponent<Light>();
+
+        // Get the checkpoint mesh
+        checkpointMesh = GetComponentInChildren<Renderer>();
     }
 
     // Use this for initialization
     void Start()
     {
+        // Set the colour of the checkpoint mesh to be the same as the checkpoint light
+        checkpointMesh.material.EnableKeyword("_EMISSION");
+        checkpointMesh.material.SetColor("_EmissionColor", checkpointLight.color);
+
         // Set the activated light brightness
         activateTargetLightBrightness = checkpointLight.intensity;
 
@@ -52,8 +72,34 @@ public class LightCheckpoint : MonoBehaviour
         // If the overlaping object is the player
         if (other.gameObject.CompareTag("Player"))
         {
+            // Disable the checkpoint mesh
+            checkpointMesh.enabled = false;
+
+            // Disable the sphere collider
+            checkpointCollider.enabled = false;
+
+            // Spawn particle system
+            spawnParticleSystem();
+
             // Set the target light brightness to the activated light brightness
             lightTargetBrightness = activateTargetLightBrightness;
+        }
+    }
+
+    // Spawn particle system
+    private void spawnParticleSystem()
+    {
+        // Spawn the object
+        GameObject spawnedParticleSystem = (GameObject)Instantiate(activatedParticleSystem, transform.position, Quaternion.identity);
+
+        // Get the particle system component
+        ParticleSystem particleSystem = spawnedParticleSystem.GetComponent<ParticleSystem>();
+
+        // Is the particle system component exists
+        if (particleSystem)
+        {
+            // Set the colour of the particle system
+            particleSystem.startColor = checkpointLight.color;
         }
     }
 }

@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Set movement axis values
-        setMovementAxisValues();    
+        setMovementAxisValues();
     }
 
     // Called before physics calculations
