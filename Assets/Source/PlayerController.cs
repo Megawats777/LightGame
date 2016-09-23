@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     // Movement speed
     public float movementSpeed = 20.0f;
 
+    // Can the player move
+    private bool canMove = false;
+
     // Reference to the rigid body component
     private Rigidbody playerRigidBody;
 
@@ -29,8 +32,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Set the movement axis values
-        setMovementAxisValues();
+        // Rotate player
+        rotatePlayer();
+
+        // Set if the player can move
+        setCanMove();
     }
 
     // Called before physics calculations
@@ -40,42 +46,56 @@ public class PlayerController : MonoBehaviour
         movePlayer();
     }
 
-    // Set the movement axis values
-    private void setMovementAxisValues()
+    // Rotate player
+    private void rotatePlayer()
     {
-        // If the move up or move down buttons are pressed adjust the vertical axis values
-        if (Input.GetButton("MoveUp"))
+       
+    }
+
+    // Set if the player can move
+    private void setCanMove()
+    {
+        // If on PC
+        if (Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.WindowsEditor)
         {
-            axisVertical = 1.0f;
-        }
-        else if (Input.GetButton("MoveDown"))
-        {
-            axisVertical = -1.0f;
-        }
-        else
-        {
-            axisVertical = 0.0f;
+            // If the move button is pressed
+            if (Input.GetButtonDown("Move"))
+            {
+                canMove = true;
+            }
+
+            // If the move button is released
+            else if (Input.GetButtonUp("Move"))
+            {
+                canMove = false;
+            }
         }
 
-        // If the move left or move right buttons are pressed adjust the horizontal axis values
-        if (Input.GetButton("MoveRight"))
+        // If on android
+        if (Application.platform == RuntimePlatform.Android)
         {
-            axisHorizontal = 1.0f;
-        }
-        else if (Input.GetButton("MoveLeft"))
-        {
-            axisHorizontal = -1.0f;
-        }
-        else
-        {
-            axisHorizontal = 0.0f;
+            // If the user touches the screen move the player
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                canMove = true;
+            }
+
+            // If the user stops touching the screen stop moving the player
+            else if (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)
+            {
+                canMove = false;
+            }
         }
     }
 
     // Move the player
     private void movePlayer()
     {
-        // Add forces to the player based on the axis values
-        playerRigidBody.AddForce(new Vector3(movementSpeed * axisHorizontal, movementSpeed * axisVertical, 0.0f));
+        // If the player can move
+        if (canMove)
+        {
+            // Add forces to the player on the y-axis
+            playerRigidBody.AddRelativeForce(new Vector3(0.0f, movementSpeed, 0.0f));
+        }
     }
 }
