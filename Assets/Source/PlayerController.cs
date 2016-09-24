@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         // DEBUG FUNCTION
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SceneManager.LoadScene("Scene_TestArea_01");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviour
         {
             axisVertical = -1.0f;
         }
+        else if (Input.GetButton("MoveUp") && Input.GetButton("MoveDown"))
+        {
+            axisVertical = 0.0f;
+        }
         else
         {
             axisVertical = 0.0f;
@@ -79,6 +83,10 @@ public class PlayerController : MonoBehaviour
         else if (Input.GetButton("MoveLeft"))
         {
             axisHorizontal = -1.0f;
+        }
+        else if (Input.GetButton("MoveRight") && Input.GetButton("MoveLeft"))
+        {
+            axisHorizontal = 0.0f;
         }
         else
         {
