@@ -25,6 +25,9 @@ public class LightCheckpoint : MonoBehaviour
     // Reference to the checkpoint mesh
     private Renderer checkpointMesh;
 
+    // Reference to the boost checkpoint class
+    private BoostCheckpoint boostCheckpoint;
+
     // Called before start
     public void Awake()
     {
@@ -36,6 +39,9 @@ public class LightCheckpoint : MonoBehaviour
 
         // Get the checkpoint mesh
         checkpointMesh = GetComponentInChildren<Renderer>();
+
+        // Get the boost checkpoint class
+        boostCheckpoint = GetComponent<BoostCheckpoint>();
     }
 
     // Use this for initialization
@@ -78,6 +84,16 @@ public class LightCheckpoint : MonoBehaviour
             // Disable the sphere collider
             checkpointCollider.enabled = false;
 
+            // If the boost checkpoint class exists
+            if (boostCheckpoint)
+            {
+                // The rigidbody of the player
+                Rigidbody rigidBody = other.gameObject.GetComponent<Rigidbody>();
+
+                // Add force to the player
+                boostCheckpoint.boostObject(rigidBody);
+            }
+
             // Spawn particle system
             spawnParticleSystem();
 
@@ -95,7 +111,7 @@ public class LightCheckpoint : MonoBehaviour
         // Get the particle system component
         ParticleSystem particleSystem = spawnedParticleSystem.GetComponent<ParticleSystem>();
 
-        // Is the particle system component exists
+        // If the particle system component exists
         if (particleSystem)
         {
             // Set the colour of the particle system

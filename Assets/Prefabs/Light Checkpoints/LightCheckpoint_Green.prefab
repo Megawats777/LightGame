@@ -12,6 +12,7 @@ GameObject:
   - 135: {fileID: 13581248}
   - 54: {fileID: 5477636}
   - 114: {fileID: 11436416}
+  - 114: {fileID: 11478156}
   m_Layer: 0
   m_Name: LightCheckpoint_Green
   m_TagString: Untagged
@@ -44,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.34, y: 20.9, z: -1}
+  m_LocalPosition: {x: 29.48, y: 4.52, z: 0.06584911}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 461874}
@@ -169,6 +170,19 @@ MonoBehaviour:
   lightBrightnessChangeSpeed: 5
   activatedParticleSystem: {fileID: 167492, guid: afca06994bfc567488fd67c9c494e2a7,
     type: 2}
+--- !u!114 &11478156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b373688c0aa1f44ea4221338bb72adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boostDirection: {x: 0, y: 0, z: 0}
+  boostVelocity: 500
 --- !u!135 &13581248
 SphereCollider:
   m_ObjectHideFlags: 1

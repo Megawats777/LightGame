@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private bool canMove = true;
 
     // Reference to the rigid body component
-    private Rigidbody playerRigidBody;
+    [HideInInspector]
+    public Rigidbody playerRigidBody;
 
     // Called before start
     public void Awake()
