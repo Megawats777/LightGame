@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostDirection: {x: 0, y: 0, z: 0}
-  boostVelocity: 500
+  boostVelocity: 350
 --- !u!135 &13581248
 SphereCollider:
   m_ObjectHideFlags: 1
