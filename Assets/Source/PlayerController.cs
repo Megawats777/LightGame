@@ -18,11 +18,29 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Rigidbody playerRigidBody;
 
+    // Reference to the renderer component
+    private Renderer playerRenderer;
+
+    // Reference to the particle trail
+    private ParticleSystem particleTrail;
+
+    // Reference to the sphere light
+    private Light sphereLight;
+
     // Called before start
     public void Awake()
     {
         // Get the rigid body component
         playerRigidBody = GetComponent<Rigidbody>();
+
+        // Get the renderer component
+        playerRenderer = GetComponent<Renderer>();
+
+        // Get the particle trail
+        particleTrail = GetComponentInChildren<ParticleSystem>();
+
+        // Get the sphere light
+        sphereLight = GetComponentInChildren<Light>();
     }
 
     // Use this for initialization
@@ -104,5 +122,21 @@ public class PlayerController : MonoBehaviour
             // Add forces to the player on the y-axis
             playerRigidBody.AddForce(new Vector3(movementSpeed * axisHorizontal, movementSpeed * axisVertical, 0.0f));
         }
+    }
+
+    // Disable the player
+    public void disablePlayer()
+    {
+        // Set can move to false and set the player rigidbody to be kinematic
+        canMove = false;
+        playerRigidBody.isKinematic = true;
+
+        // Disable the player renderer
+        playerRenderer.enabled = false;
+
+        // Disable the sphere light and particle trail
+        sphereLight.enabled = false;
+        particleTrail.loop = false;
+        particleTrail.startLifetime = 0.0f;
     }
 }
