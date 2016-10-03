@@ -87,11 +87,11 @@ public class LightCheckpoint : MonoBehaviour
             // If the boost checkpoint class exists
             if (boostCheckpoint)
             {
-                // The rigidbody of the player
-                Rigidbody rigidBody = other.gameObject.GetComponent<Rigidbody>();
+                // The Player object reference
+                PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
                 // Add force to the player
-                boostCheckpoint.boostObject(rigidBody);
+                boostCheckpoint.boostObject(player);
             }
 
             // Spawn particle system

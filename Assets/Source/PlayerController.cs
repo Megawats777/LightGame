@@ -5,11 +5,14 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     // Movement axis values
-    private float axisVertical = 0.0f;
-    private float axisHorizontal = 0.0f;
+    public float axisVertical = 0.0f;
+    public float axisHorizontal = 0.0f;
 
-    // Movement speed
+    // Movement speed properties
+    [Header("Movement Speed Properties")]
     public float movementSpeed = 20.0f;
+    public float speedBlendTime = 50.0f;
+    private float defaultMovementSpeed = 0.0f;
 
     // Can the player move
     private bool canMove = true;
@@ -46,7 +49,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        // Set the default movement speed
+        defaultMovementSpeed = movementSpeed;
     }
 
     // Update is called once per frame
@@ -55,7 +59,10 @@ public class PlayerController : MonoBehaviour
         // Set movement axis values
         setMovementAxisValues();
 
-        // DEBUG FUNCTION
+        // Blend movement speed values
+        blendMovementSpeedValues();
+
+        // DEBUG FUNCTIONS
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -111,6 +118,12 @@ public class PlayerController : MonoBehaviour
         {
             axisHorizontal = 0.0f;
         }
+    }
+
+    // Blend movement speed values
+    private void blendMovementSpeedValues()
+    {
+        movementSpeed = Mathf.Lerp(movementSpeed, defaultMovementSpeed, Time.deltaTime * speedBlendTime);
     }
 
     // Move the player

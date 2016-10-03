@@ -3,11 +3,8 @@ using System.Collections;
 
 public class BoostCheckpoint : MonoBehaviour
 {
-    // Direction of the boost 
-    public Vector3 boostDirection;
-
     // Boost velocity
-    public float boostVelocity = 100.0f;
+    public float boostVelocity = 50.0f;
 
 	// Use this for initialization
 	void Start ()
@@ -29,8 +26,8 @@ public class BoostCheckpoint : MonoBehaviour
     }
 
     // Boost object
-    public void boostObject(Rigidbody rb)
+    public void boostObject(PlayerController player)
     {
-        rb.AddForce(new Vector3(boostDirection.x * boostVelocity, boostDirection.y * boostVelocity, boostDirection.z * boostVelocity));
+        player.movementSpeed += boostVelocity;
     }
 }

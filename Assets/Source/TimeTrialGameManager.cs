@@ -74,6 +74,21 @@ public class TimeTrialGameManager : MonoBehaviour
         }
     }
 
+    // Get the game clock length
+    public int getGameClockLength()
+    {
+        return clockLength;
+    }
+
+    // Set the game clock length
+    public void setGameClockLength(int length)
+    {
+        clockLength = length;
+
+        // Update the game clock HUD
+        updateGameClockHUD();
+    }
+
     // End the game
     public void endGame(bool winStatus)
     {
