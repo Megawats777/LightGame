@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Speed Properties")]
     public float movementSpeed = 20.0f;
     public float speedBlendTime = 50.0f;
+    private float targetMovementSpeed = 0.0f;
     private float defaultMovementSpeed = 0.0f;
 
     // Can the player move
