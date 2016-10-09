@@ -28,6 +28,9 @@ public class LightCheckpoint : MonoBehaviour
     // Reference to the boost checkpoint class
     private BoostCheckpoint boostCheckpoint;
 
+    /*--External References--*/
+    TimeTrialGameManager timeTrialGameManager;
+
     // Called before start
     public void Awake()
     {
@@ -42,6 +45,9 @@ public class LightCheckpoint : MonoBehaviour
 
         // Get the boost checkpoint class
         boostCheckpoint = GetComponent<BoostCheckpoint>();
+
+        // Get the timeTrialGameManager
+        timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
     }
 
     // Use this for initialization
@@ -83,6 +89,13 @@ public class LightCheckpoint : MonoBehaviour
 
             // Disable the sphere collider
             checkpointCollider.enabled = false;
+
+            // If the light checkpoint has the tag "Checkpoint"
+            if (gameObject.CompareTag("Checkpoint"))
+            {
+                // Increase the number of lights restored
+                timeTrialGameManager.setLightCheckpointsRestoredAmount(timeTrialGameManager.getLightCheckpointsRestoredAmount() + 1);
+            }
 
             // If the boost checkpoint class exists
             if (boostCheckpoint)

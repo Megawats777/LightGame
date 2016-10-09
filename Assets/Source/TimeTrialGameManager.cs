@@ -4,9 +4,13 @@ using System.Collections;
 public class TimeTrialGameManager : MonoBehaviour
 {
     /*--Game Clock Properties--*/
-    [SerializeField]
+    [Header("Game Clock Properties"),SerializeField]
     private int clockLength = 30;
 
+    /*--Light Checkpoint Collection Properties*/
+    [Header("Light Checkpoint Collection Properties")]
+    public int lightCheckpointsRestored = 0;
+    private int lightCheckpointAmount = 0;
 
     /*--External References--*/
     private TimeTrialHUDManager timeTrialHUDManager;
@@ -25,14 +29,30 @@ public class TimeTrialGameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Set the light checkpoint amount
+        setLightCheckpointAmount();
+
         // Update the game clock HUD
-        updateGameClockHUD();
+        timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    // Set the light checkpoint amount
+    private void setLightCheckpointAmount()
+    {
+        // For each game object with the tag "Checkpoint" increase the light checkpoint amount
+        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Checkpoint"))
+        {
+            lightCheckpointAmount++;
+        }
+
+        // Update the lights restored HUD
+        timeTrialHUDManager.updateLightsRestoredHUD(lightCheckpointsRestored.ToString(), lightCheckpointAmount.ToString());
     }
 
     // Run the game clock
@@ -42,7 +62,7 @@ public class TimeTrialGameManager : MonoBehaviour
         clockLength--;
 
         // Update the game clock HUD
-        updateGameClockHUD();
+        timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
 
         // If the clock length is 0
         if (clockLength == 0)
@@ -64,14 +84,20 @@ public class TimeTrialGameManager : MonoBehaviour
         CancelInvoke("runGameClock");
     }
 
-    // Update the game clock HUD
-    private void updateGameClockHUD()
+    // Get the light checkpoints restored amount
+    public int getLightCheckpointsRestoredAmount()
     {
-        // If the timeTrialHUDManger exists
-        if (timeTrialHUDManager)
-        {
-            timeTrialHUDManager.clockText.text = clockLength.ToString();
-        }
+        return lightCheckpointsRestored;
+    }
+    
+    // Set the light checkpoints restored amount
+    public void setLightCheckpointsRestoredAmount(int amount)
+    {
+        // Set the light checkpoints restored amount value 
+        lightCheckpointsRestored = amount;
+
+        // Update the lights restored HUD
+        timeTrialHUDManager.updateLightsRestoredHUD(lightCheckpointsRestored.ToString(), lightCheckpointAmount.ToString());
     }
 
     // Get the game clock length
@@ -86,7 +112,7 @@ public class TimeTrialGameManager : MonoBehaviour
         clockLength = length;
 
         // Update the game clock HUD
-        updateGameClockHUD();
+        timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
     }
 
     // End the game
