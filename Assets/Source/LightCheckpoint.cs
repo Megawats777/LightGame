@@ -31,6 +31,9 @@ public class LightCheckpoint : MonoBehaviour
     /*--External References--*/
     TimeTrialGameManager timeTrialGameManager;
 
+    [SerializeField]
+    private TrackScenery[] trackSceneryObjects;
+
     // Called before start
     public void Awake()
     {
@@ -40,7 +43,7 @@ public class LightCheckpoint : MonoBehaviour
         // Get the light component
         checkpointLight = GetComponent<Light>();
 
-        // Get the checkpoint mesh
+        // Get the checkpoint mesh renderer
         checkpointMesh = GetComponentInChildren<Renderer>();
 
         // Get the boost checkpoint class
@@ -107,11 +110,28 @@ public class LightCheckpoint : MonoBehaviour
                 boostCheckpoint.boostObject(player);
             }
 
+            // Restore track scenery objects
+            restoreTrackSceneryObjects();
+
             // Spawn particle system
             spawnParticleSystem();
 
             // Set the target light brightness to the activated light brightness
             lightTargetBrightness = activateTargetLightBrightness;
+        }
+    }
+
+    // Restore track scenery objects
+    private void restoreTrackSceneryObjects()
+    {
+        // If the list of track scenery objects is greater than 0
+        if (trackSceneryObjects.Length > 0)
+        {
+            // For each track scenery object
+            foreach (TrackScenery scenery in trackSceneryObjects)
+            {
+                scenery.restoreObject();
+            }
         }
     }
 
