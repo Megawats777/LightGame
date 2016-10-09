@@ -5,12 +5,16 @@ public class StartLine : MonoBehaviour
 {
     /*--External References--*/
     private TimeTrialGameManager timeTrialGameManager;
+    private CameraController cameraController;
 
     // Called before start
     public void Awake()
     {
         // Get the timeTrialGameManager
         timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
+
+        // Get the camera controller
+        cameraController = FindObjectOfType<CameraController>();
     }
 
     // Use this for initialization
@@ -33,6 +37,9 @@ public class StartLine : MonoBehaviour
         {
             // Start the game clock
             timeTrialGameManager.startGameClock();
+
+            // Set the game camera to follow the player
+            cameraController.isTrackingPlayer = true;
         }
     }
 }
