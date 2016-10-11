@@ -39,15 +39,6 @@ public class FinishLine : MonoBehaviour
     // Draw editor gizmos
     public void OnDrawGizmos()
     {
-        /*--Draw a text label over the object--*/
-
-        // The position of the text label
-        Vector3 textLabelPos = transform.position + new Vector3(0.0f, 1.0f, 0.0f);
-
-        // Set the colour of the text label
-        UnityEditor.Handles.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-
-        // Set the text of the text label
-        UnityEditor.Handles.Label(textLabelPos, "Finish Line");
+        
     }
 }
