@@ -130,6 +130,7 @@ public class LightCheckpoint : MonoBehaviour
             // For each track scenery object
             foreach (TrackScenery scenery in trackSceneryObjects)
             {
+                // Set the track scenery object to a restored state
                 scenery.restoreObject();
             }
         }
