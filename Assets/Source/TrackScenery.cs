@@ -71,4 +71,11 @@ public class TrackScenery : MonoBehaviour
         // Set the object opacity to 1
         objectOpacity = 1.0f;
     }
+
+    // Disable object
+    public void disableObject()
+    {
+        // Set the object opacity to 0
+        objectOpacity = 0.0f;
+    }
 }

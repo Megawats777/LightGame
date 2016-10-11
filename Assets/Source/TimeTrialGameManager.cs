@@ -135,6 +135,12 @@ public class TimeTrialGameManager : MonoBehaviour
         else if (winStatus == false)
         {
             timeTrialHUDManager.winLoseText.text = "Game Over";
+
+            // Dim all track scenery objects
+            foreach (TrackScenery scenery in FindObjectsOfType<TrackScenery>())
+            {
+                scenery.disableObject();
+            }
         }
         
         // Disable the player
