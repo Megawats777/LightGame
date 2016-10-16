@@ -12,6 +12,12 @@ public class TimeTrialGameManager : MonoBehaviour
     public int lightCheckpointsRestored = 0;
     private int lightCheckpointAmount = 0;
 
+    /*--Medal Targets--*/
+    [Header("Medal Targets")]
+    public int goldMedalTarget = 0;
+    public int silverMedalTarget = 5;
+    public int bronzeMedalTarget = 3;
+
     /*--External References--*/
     private TimeTrialHUDManager timeTrialHUDManager;
     private PlayerController player;
@@ -34,6 +40,12 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Update the game clock HUD
         timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
+
+        // Set the gold medal target to be the same as the light checkpoint amount
+        goldMedalTarget = lightCheckpointAmount;
+
+        // Update the medal target HUD
+        timeTrialHUDManager.updateMedalTargetHUD(goldMedalTarget.ToString(), silverMedalTarget.ToString(), bronzeMedalTarget.ToString());
     }
 
     // Update is called once per frame
@@ -52,7 +64,7 @@ public class TimeTrialGameManager : MonoBehaviour
         }
 
         // Update the lights restored HUD
-        timeTrialHUDManager.updateLightsRestoredHUD(lightCheckpointsRestored.ToString(), lightCheckpointAmount.ToString());
+        timeTrialHUDManager.updateLightsRestoredHUD(lightCheckpointsRestored.ToString());
     }
 
     // Run the game clock
@@ -68,7 +80,7 @@ public class TimeTrialGameManager : MonoBehaviour
         if (clockLength == 0)
         {
             // End the game
-            endGame(false);   
+            endGame();   
         }
     }
 
@@ -97,7 +109,7 @@ public class TimeTrialGameManager : MonoBehaviour
         lightCheckpointsRestored = amount;
 
         // Update the lights restored HUD
-        timeTrialHUDManager.updateLightsRestoredHUD(lightCheckpointsRestored.ToString(), lightCheckpointAmount.ToString());
+        timeTrialHUDManager.updateLightsRestoredHUD(lightCheckpointsRestored.ToString());
     }
 
     // Get the game clock length
@@ -116,34 +128,49 @@ public class TimeTrialGameManager : MonoBehaviour
     }
 
     // End the game
-    public void endGame(bool winStatus)
+    public void endGame()
     {
         // Stop the game clock
         endGameClock();
 
-        // Disable the clock title and clock text HUD
-        timeTrialHUDManager.clockTitle.text = "";
-        timeTrialHUDManager.clockText.text = "";
-
-        // If the winStatus is true
-        if (winStatus == true)
+        // If the clock length is greater than 0
+        if (clockLength > 0)
         {
             timeTrialHUDManager.winLoseText.text = "You Win";
+
+            // Check medal targets were achieved
+            checkMedalTargets();
         }
 
-        // If the winStatus is false
-        else if (winStatus == false)
+        // If the clock length is 0
+        else if (clockLength == 0)
         {
             timeTrialHUDManager.winLoseText.text = "Game Over";
-
-            // Dim all track scenery objects
-            foreach (TrackScenery scenery in FindObjectsOfType<TrackScenery>())
-            {
-                scenery.disableObject();
-            }
         }
-        
+
         // Disable the player
         player.disablePlayer();
+    }
+
+    // Check medal targets were achieved
+    private void checkMedalTargets()
+    {
+        // If the player earned a gold medal
+        if (lightCheckpointsRestored == goldMedalTarget)
+        {
+            Debug.Log("You won the gold medal");
+        }
+
+        // If the player earned a silver medal
+        else if (lightCheckpointsRestored >= silverMedalTarget && lightCheckpointsRestored < goldMedalTarget)
+        {
+            Debug.Log("You won the silver medal");
+        }
+
+        // If the player earned a bronze medal
+        else if (lightCheckpointsRestored >= bronzeMedalTarget && lightCheckpointsRestored < silverMedalTarget)
+        {
+            Debug.Log("You won the bronze medal");
+        }
     }
 }

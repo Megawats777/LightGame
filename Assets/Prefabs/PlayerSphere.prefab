@@ -186,7 +186,7 @@ MonoBehaviour:
   axisVertical: 0
   axisHorizontal: 0
   movementSpeed: 23
-  speedBlendTime: 5
+  speedBlendTime: 10
   playerRigidBody: {fileID: 0}
 --- !u!135 &13500428
 SphereCollider:

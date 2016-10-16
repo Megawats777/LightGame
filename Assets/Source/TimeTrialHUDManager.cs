@@ -15,6 +15,11 @@ public class TimeTrialHUDManager : MonoBehaviour
     public Text lightsRestoredTitle;
     public Text lightsRestoredText;
 
+    // Medal target text objects
+    public Text goldMedalText;
+    public Text silverMedalText;
+    public Text bronzeMedalText;
+
     public Text winLoseText;
 
 	// Use this for initialization
@@ -37,8 +42,17 @@ public class TimeTrialHUDManager : MonoBehaviour
     }
 
     // Update the lights restored HUD
-    public void updateLightsRestoredHUD(string currentLightsRestored, string lightCheckpointAmountString)
+    public void updateLightsRestoredHUD(string currentLightsRestored)
     {
-        lightsRestoredText.text = currentLightsRestored + "/" + lightCheckpointAmountString;
+        lightsRestoredText.text = currentLightsRestored;
+    }
+
+    // Update medal target HUD
+    public void updateMedalTargetHUD(string goldMedalTarget, string silverMedalTarget, string bronzeMedalTarget)
+    {
+        // Set the content of the medal target text objects
+        goldMedalText.text = goldMedalTarget;
+        silverMedalText.text = silverMedalTarget;
+        bronzeMedalText.text = bronzeMedalTarget;
     }
 }

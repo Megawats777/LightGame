@@ -32,7 +32,7 @@ public class FinishLine : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // End the game
-            timeTrialGameManager.endGame(true);
+            timeTrialGameManager.endGame();
         }
     }
 
