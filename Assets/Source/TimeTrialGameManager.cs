@@ -136,8 +136,6 @@ public class TimeTrialGameManager : MonoBehaviour
         // If the clock length is greater than 0
         if (clockLength > 0)
         {
-            timeTrialHUDManager.winLoseText.text = "You Win";
-
             // Check medal targets were achieved
             checkMedalTargets();
         }
@@ -145,7 +143,7 @@ public class TimeTrialGameManager : MonoBehaviour
         // If the clock length is 0
         else if (clockLength == 0)
         {
-            timeTrialHUDManager.winLoseText.text = "Game Over";
+            
         }
 
         // Disable the player

@@ -20,20 +20,27 @@ public class TimeTrialHUDManager : MonoBehaviour
     public Text silverMedalText;
     public Text bronzeMedalText;
 
-    public Text winLoseText;
+    /*--External References--*/
+    private GameObject timeTrialGameManagerObject;
 
-	// Use this for initialization
-	void Start ()
+    // Called before start
+    public void Awake()
     {
-        // Set the content of the winLoseText to null
-        winLoseText.text = "";	
-	}
-	
-	// Update is called once per frame
-	void Update ()
+        // Get the timeTrialGameManager Gameobject
+        timeTrialGameManagerObject = FindObjectOfType<TimeTrialGameManager>().gameObject;
+    }
+
+    // Use this for initialization
+    void Start()
     {
-	
-	}
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     // Update the game clock HUD
     public void updateGameClockHUD(string content)
