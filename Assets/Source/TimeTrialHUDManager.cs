@@ -23,8 +23,14 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Finish Text object
     public Text finishText;
 
+    // UI Animation Controllers
     [Header("UI Animation Controllers")]
     public Animator finishTextAnimator;
+
+    // UI Animation Properties
+    [Header("UI Animation Properties")]
+    public float finishTextOpenDelay = 2.0f;
+    public float finishTextCloseDelay = 2.0f;
 
     /*--External References--*/
     private GameObject timeTrialGameManagerObject;
@@ -77,17 +83,23 @@ public class TimeTrialHUDManager : MonoBehaviour
 
     /*--Open HUD Element Functions--*/
 
-    // Open the finish text object
-    public void openFinishTextObject()
+    // Open the finish text object after a delay
+    public IEnumerator openFinishTextObject(float openDelay)
     {
+        yield return new WaitForSeconds(openDelay);
         finishTextAnimator.SetBool("isExpanding", true);
+
+        // Close the finish text object after a delay
+        StartCoroutine(closeFinishTextObject(finishTextCloseDelay));
     }
 
     /*--Close HUD Element Functions--*/
 
     // Close the finish text object
-    public void closeFinishTextObject()
+    private IEnumerator closeFinishTextObject(float closeDelay)
     {
+        // Delay closing the object by a set amount
+        yield return new WaitForSeconds(closeDelay);
         finishTextAnimator.SetBool("isExpanding", false);
     }
 

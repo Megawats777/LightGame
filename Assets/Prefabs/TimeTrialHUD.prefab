@@ -597,6 +597,8 @@ MonoBehaviour:
   bronzeMedalText: {fileID: 11454510}
   finishText: {fileID: 11437034}
   finishTextAnimator: {fileID: 9560322}
+  finishTextOpenDelay: 1
+  finishTextCloseDelay: 6
 --- !u!114 &11437034
 MonoBehaviour:
   m_ObjectHideFlags: 1

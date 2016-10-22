@@ -140,7 +140,7 @@ public class TimeTrialGameManager : MonoBehaviour
             timeTrialHUDManager.updateFinishTextContent("Finish");
 
             // Open the finish text object
-            timeTrialHUDManager.openFinishTextObject();
+            StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
 
             // Check medal targets were achieved
             checkMedalTargets();
@@ -153,7 +153,7 @@ public class TimeTrialGameManager : MonoBehaviour
             timeTrialHUDManager.updateFinishTextContent("Time Up");
 
             // Open the finish text object
-            timeTrialHUDManager.openFinishTextObject();
+            StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
         }
 
         // Disable the player
