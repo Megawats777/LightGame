@@ -20,6 +20,12 @@ public class TimeTrialHUDManager : MonoBehaviour
     public Text silverMedalText;
     public Text bronzeMedalText;
 
+    // Finish Text object
+    public Text finishText;
+
+    [Header("UI Animation Controllers")]
+    public Animator finishTextAnimator;
+
     /*--External References--*/
     private GameObject timeTrialGameManagerObject;
 
@@ -62,4 +68,27 @@ public class TimeTrialHUDManager : MonoBehaviour
         silverMedalText.text = silverMedalTarget;
         bronzeMedalText.text = bronzeMedalTarget;
     }
+
+    // Update the content of the finish text object
+    public void updateFinishTextContent(string message)
+    {
+        finishText.text = message;
+    }
+
+    /*--Open HUD Element Functions--*/
+
+    // Open the finish text object
+    public void openFinishTextObject()
+    {
+        finishTextAnimator.SetBool("isExpanding", true);
+    }
+
+    /*--Close HUD Element Functions--*/
+
+    // Close the finish text object
+    public void closeFinishTextObject()
+    {
+        finishTextAnimator.SetBool("isExpanding", false);
+    }
+
 }

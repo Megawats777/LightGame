@@ -136,6 +136,12 @@ public class TimeTrialGameManager : MonoBehaviour
         // If the clock length is greater than 0
         if (clockLength > 0)
         {
+            // Set the finish text message
+            timeTrialHUDManager.updateFinishTextContent("Finish");
+
+            // Open the finish text object
+            timeTrialHUDManager.openFinishTextObject();
+
             // Check medal targets were achieved
             checkMedalTargets();
         }
@@ -143,7 +149,11 @@ public class TimeTrialGameManager : MonoBehaviour
         // If the clock length is 0
         else if (clockLength == 0)
         {
-            
+            // Set the finish text message
+            timeTrialHUDManager.updateFinishTextContent("Time Up");
+
+            // Open the finish text object
+            timeTrialHUDManager.openFinishTextObject();
         }
 
         // Disable the player
