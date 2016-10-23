@@ -142,6 +142,9 @@ public class TimeTrialGameManager : MonoBehaviour
             // Open the finish text object
             StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
 
+            // Set the title of the info panel
+            timeTrialHUDManager.setInfoPanelTitle("Game Over");
+
             // Check medal targets were achieved
             checkMedalTargets();
         }
@@ -151,6 +154,9 @@ public class TimeTrialGameManager : MonoBehaviour
         {
             // Set the finish text message
             timeTrialHUDManager.updateFinishTextContent("Time Up");
+
+            // Set the title of the info panel
+            timeTrialHUDManager.setInfoPanelTitle("Game Over");
 
             // Open the finish text object
             StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
