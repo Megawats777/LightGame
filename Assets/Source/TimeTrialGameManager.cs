@@ -142,11 +142,15 @@ public class TimeTrialGameManager : MonoBehaviour
             // Open the finish text object
             StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
 
+            // Check medal targets were achieved
+            checkMedalTargets();
+
             // Set the title of the info panel
             timeTrialHUDManager.setInfoPanelTitle("Game Over");
 
-            // Check medal targets were achieved
-            checkMedalTargets();
+            // Show game summary info group
+            timeTrialHUDManager.showGameSummaryHUD(clockLength.ToString(), lightCheckpointsRestored.ToString(), timeTrialHUDManager.medalMessage, null);
+
         }
 
         // If the clock length is 0
@@ -160,6 +164,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
             // Open the finish text object
             StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
+
+            // Show game summary info group
+            timeTrialHUDManager.showGameSummaryHUD(clockLength.ToString(), lightCheckpointsRestored.ToString(), "No Medal Awarded", null);
         }
 
         // Disable the player
@@ -173,18 +180,34 @@ public class TimeTrialGameManager : MonoBehaviour
         if (lightCheckpointsRestored == goldMedalTarget)
         {
             Debug.Log("You won the gold medal");
+
+            // Set the medal awarded message
+            timeTrialHUDManager.setMedalAwardedMessage(timeTrialHUDManager.goldMedalMessage);
         }
 
         // If the player earned a silver medal
         else if (lightCheckpointsRestored >= silverMedalTarget && lightCheckpointsRestored < goldMedalTarget)
         {
             Debug.Log("You won the silver medal");
+
+            // Set the medal awarded message
+            timeTrialHUDManager.setMedalAwardedMessage(timeTrialHUDManager.silverMedalMessage);
         }
 
         // If the player earned a bronze medal
         else if (lightCheckpointsRestored >= bronzeMedalTarget && lightCheckpointsRestored < silverMedalTarget)
         {
             Debug.Log("You won the bronze medal");
+
+            // Set the medal awarded message
+            timeTrialHUDManager.setMedalAwardedMessage(timeTrialHUDManager.bronzeMedalMessage);
+        }
+
+        // Otherwise
+        else
+        {
+            // Set the medal awarded message
+            timeTrialHUDManager.setMedalAwardedMessage("No Medal Awarded");
         }
     }
 }

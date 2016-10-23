@@ -29,6 +29,30 @@ public class TimeTrialHUDManager : MonoBehaviour
     // The Info Panel Title
     public Text infoPanelTitle;
 
+    /*--Info Panel HUD Groups--*/
+    [Header("Info Panel HUD Groups")]
+    public GameObject pauseInfoGroup;
+    public GameObject gameSummaryInfoGroup;
+
+    /*--Info Panel Pause HUD Objects--*/
+
+
+    /*--Info Panel Game Summary HUD Objects--*/
+    [Header("Info Panel Game Summary HUD Objects")]
+    public Text timeRemainingInfoText;
+    public Text lightsRestoredInfoText;
+    public Text medalAwardedText;
+    public RawImage medalAwardedImage;
+
+    /*--Info Panel Game Summary HUD Properties--*/
+    [Header("Info Panel Game Summary HUD Objects")]
+    public string goldMedalMessage = "Gold Medal Awarded";
+    public string silverMedalMessage = "Silver Medal Awarded";
+    public string bronzeMedalMessage = "Bronze Medal Awarded";
+
+    [HideInInspector]
+    public string medalMessage = null;
+
     // HUD Groups
     [Header("HUD Groups")]
     public GameObject clockTextGroup;
@@ -62,6 +86,9 @@ public class TimeTrialHUDManager : MonoBehaviour
     {
         // Enable all HUD Groups
         enableAllHUDGroups();
+
+        // Disable all Info Panel HUD Groups
+        disableInfoPanelHUDGroups();
     }
 
     // Update is called once per frame
@@ -77,6 +104,13 @@ public class TimeTrialHUDManager : MonoBehaviour
         lightsRestoredGroup.SetActive(true);
         finishTextGroup.SetActive(true);
         infoPanelGroup.SetActive(true);
+    }
+
+    // Disable all Info Panel HUD Groups
+    private void disableInfoPanelHUDGroups()
+    {
+        pauseInfoGroup.SetActive(true);
+        gameSummaryInfoGroup.SetActive(true);
     }
 
     // Update the game clock HUD
@@ -152,4 +186,42 @@ public class TimeTrialHUDManager : MonoBehaviour
         infoPanelAnimator.SetBool("isShrinking", true);
     }
 
+    /*----Info Panel Functions----*/
+
+
+    /*--Info Panel Pause Functions--*/
+
+
+    /*--Info Panel Game Summary Functions--*/
+
+    // Show the game summary HUD
+    public void showGameSummaryHUD(string timeRemainingSTR, string lightsRestoredSTR, string medalAwardedSTR, Texture2D medalImage)
+    {
+        // Set the game summary HUD to be active
+        gameSummaryInfoGroup.SetActive(true);
+
+        // Set the content of the time remaining text
+        timeRemainingInfoText.text = timeRemainingSTR;
+
+        // Set the content of the lights restored text
+        lightsRestoredInfoText.text = lightsRestoredSTR;
+
+        // Set the content of the medal awarded text
+        medalAwardedText.text = medalAwardedSTR;
+
+        // Set the medal awarded image
+        medalAwardedImage.texture = medalImage;
+    }
+
+    // Close the game summary HUD
+    public void closeGameSummaryHUD()
+    {
+        gameSummaryInfoGroup.SetActive(false);
+    }
+
+    // Set medal awarded message
+    public void setMedalAwardedMessage(string message)
+    {
+        medalMessage = message;
+    }
 }
