@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
     // Reference to the sphere light
     private Light sphereLight;
 
+
+    /*--External References--*/
+    TimeTrialGameManager timeTrialGameManager;
+
     // Called before start
     public void Awake()
     {
@@ -45,6 +49,9 @@ public class PlayerController : MonoBehaviour
 
         // Get the sphere light
         sphereLight = GetComponentInChildren<Light>();
+
+        // Get the timeTrialGameManager
+        timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
     }
 
     // Use this for initialization
@@ -63,15 +70,8 @@ public class PlayerController : MonoBehaviour
         // Blend movement speed values
         blendMovementSpeedValues();
 
-        // DEBUG FUNCTIONS
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        // Control pause state
+        controlPauseState();
     }
 
     // Called before physics calculations
@@ -79,6 +79,30 @@ public class PlayerController : MonoBehaviour
     {
         // Move the player
         movePlayer();
+    }
+
+    // Control pause state
+    private void controlPauseState()
+    {
+        // If the pause button is pressed
+        if (Input.GetButtonDown("Pause"))
+        {
+            // If the timeTrialGameManager exists
+            if (timeTrialGameManager)
+            {
+                // If the game is not paused and the player can pause then pause the game
+                if (timeTrialGameManager.isGamePaused == false && timeTrialGameManager.playerCanPauseGame == true)
+                {
+                    timeTrialGameManager.pauseGame();
+                }
+
+                // If the game is paused and the player cannot pause then unpause the game
+                else if (timeTrialGameManager.isGamePaused == true && timeTrialGameManager.playerCanPauseGame == false)
+                {
+                    timeTrialGameManager.UnpauseGame();
+                }
+            }
+        }
     }
 
     // Set movement axis values

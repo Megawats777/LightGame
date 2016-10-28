@@ -45,7 +45,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     public RawImage medalAwardedImage;
 
     /*--Info Panel Game Summary HUD Properties--*/
-    [Header("Info Panel Game Summary HUD Objects")]
+    [Header("Info Panel Game Summary HUD Properties")]
     public string goldMedalMessage = "Gold Medal Awarded";
     public string silverMedalMessage = "Silver Medal Awarded";
     public string bronzeMedalMessage = "Bronze Medal Awarded";
@@ -180,7 +180,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     }
 
     // Close the info panel
-    private void closeInfoPanel()
+    public void closeInfoPanel()
     {
         infoPanelAnimator.SetBool("isExpanding", false);
         infoPanelAnimator.SetBool("isShrinking", true);

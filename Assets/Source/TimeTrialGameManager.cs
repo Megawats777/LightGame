@@ -18,6 +18,11 @@ public class TimeTrialGameManager : MonoBehaviour
     public int silverMedalTarget = 5;
     public int bronzeMedalTarget = 3;
 
+    /*--Pause Properties--*/
+    [Header("Pause Properties")]
+    public bool isGamePaused = false;
+    public bool playerCanPauseGame = true;
+
     /*--External References--*/
     private TimeTrialHUDManager timeTrialHUDManager;
     private PlayerController player;
@@ -127,9 +132,54 @@ public class TimeTrialGameManager : MonoBehaviour
         timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
     }
 
+    // Pause the game
+    public void pauseGame()
+    {
+        // Set the time scale to be 0
+        Time.timeScale = 0.0f;
+
+        // Set the game as paused
+        isGamePaused = true;
+
+        // Set the player cannot pause the game
+        playerCanPauseGame = false;
+
+        // Stop the game clock
+        endGameClock();
+
+        // Show the info panel
+        timeTrialHUDManager.openInfoPanel();
+    }
+
+    // Unpause the game
+    public void UnpauseGame()
+    {
+        // Set the time scale to be 1
+        Time.timeScale = 1.0f;
+
+        // Set the game as not paused
+        isGamePaused = false;
+
+        // Set the player can pause the game
+        playerCanPauseGame = true;
+
+        // Start the game clock
+        startGameClock();
+
+        // Show the info panel
+        timeTrialHUDManager.closeInfoPanel();
+    }
+
+
     // End the game
     public void endGame()
     {
+        // Set the game as not paused
+        isGamePaused = false;
+
+        // Do not allow the player to pause
+        playerCanPauseGame = false;
+
         // Stop the game clock
         endGameClock();
 
