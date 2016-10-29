@@ -20,12 +20,18 @@ public class GlobalButtonActions : MonoBehaviour
     // Load Current Level
     public void loadCurrentLevel()
     {
+        // Set the time scale to 1
+        Time.timeScale = 1.0f;
+
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
 
     // Load Level
     public void loadLevel(string levelName)
     {
+        // Set the time scale to 1
+        Time.timeScale = 1.0f;
+
         SceneManager.LoadSceneAsync(levelName);
     }
 
