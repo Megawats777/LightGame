@@ -35,7 +35,9 @@ public class TimeTrialHUDManager : MonoBehaviour
     public GameObject gameSummaryInfoGroup;
 
     /*--Info Panel Pause HUD Objects--*/
-
+    [Header("Info Panel Pause Screen HUD Objects")]
+    public Text timeRemaingingInfoTextPaused;
+    public Text lightsRestoredInfoTextPaused;
 
     /*--Info Panel Game Summary HUD Objects--*/
     [Header("Info Panel Game Summary HUD Objects")]
@@ -72,13 +74,13 @@ public class TimeTrialHUDManager : MonoBehaviour
     public float infoPanelOpenDelay = 10.0f;
 
     /*--External References--*/
-    private GameObject timeTrialGameManagerObject;
+    private TimeTrialGameManager timeTrialGameManager;
 
     // Called before start
     public void Awake()
     {
         // Get the timeTrialGameManager Gameobject
-        timeTrialGameManagerObject = FindObjectOfType<TimeTrialGameManager>().gameObject;
+        timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
     }
 
     // Use this for initialization
@@ -109,8 +111,8 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Disable all Info Panel HUD Groups
     private void disableInfoPanelHUDGroups()
     {
-        pauseInfoGroup.SetActive(true);
-        gameSummaryInfoGroup.SetActive(true);
+        pauseInfoGroup.SetActive(false);
+        gameSummaryInfoGroup.SetActive(false);
     }
 
     // Update the game clock HUD
@@ -197,8 +199,14 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Show the game summary HUD
     public void showGameSummaryHUD(string timeRemainingSTR, string lightsRestoredSTR, string medalAwardedSTR, Texture2D medalImage)
     {
+        // Disable the pause screen info group
+        pauseInfoGroup.SetActive(false);
+
         // Set the game summary HUD to be active
         gameSummaryInfoGroup.SetActive(true);
+
+        // Set the title of the info panel
+        infoPanelTitle.text = "Game Over";
 
         // Set the content of the time remaining text
         timeRemainingInfoText.text = timeRemainingSTR;
@@ -224,4 +232,46 @@ public class TimeTrialHUDManager : MonoBehaviour
     {
         medalMessage = message;
     }
+
+    /*--Info Panel Pause Screen Functions--*/
+
+    // Show pause screen HUD
+    public void showPauseScreenHUD()
+    {
+        // Set the title of the info panel
+        infoPanelTitle.text = "Game Paused";
+
+        // Disable the game summary info panel group
+        gameSummaryInfoGroup.SetActive(false);
+
+        // Enable the pause screen info panel group
+        pauseInfoGroup.SetActive(true);
+
+        // Update time remaining pause screen text
+        updateTimeRemainingPauseText();
+
+        // Update lights restored pause screen text
+        updateLightsRestoredPauseText();
+    }
+
+    // Update time remaining pause screen text
+    private void updateTimeRemainingPauseText()
+    {
+        timeRemaingingInfoTextPaused.text = timeTrialGameManager.getGameClockLength().ToString();
+    }
+
+    // Update lights restored pause screen text
+    private void updateLightsRestoredPauseText()
+    {
+        lightsRestoredInfoTextPaused.text = timeTrialGameManager.getLightCheckpointsRestoredAmount().ToString();
+    }
+
+    /*--TimeTrialGameManager Wrapper Functions--*/
+
+    // Unpause wrapper functions
+    public void unPauseWrapper()
+    {
+        timeTrialGameManager.UnpauseGame();
+    }
+
 }

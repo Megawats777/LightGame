@@ -149,6 +149,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Show the info panel
         timeTrialHUDManager.openInfoPanel();
+
+        // Show pause screen HUD
+        timeTrialHUDManager.showPauseScreenHUD();
     }
 
     // Unpause the game
@@ -194,9 +197,6 @@ public class TimeTrialGameManager : MonoBehaviour
 
             // Check medal targets were achieved
             checkMedalTargets();
-
-            // Set the title of the info panel
-            timeTrialHUDManager.setInfoPanelTitle("Game Over");
 
             // Show game summary info group
             timeTrialHUDManager.showGameSummaryHUD(clockLength.ToString(), lightCheckpointsRestored.ToString(), timeTrialHUDManager.medalMessage, null);
