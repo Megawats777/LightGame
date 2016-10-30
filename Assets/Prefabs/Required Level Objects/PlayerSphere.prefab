@@ -185,8 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axisVertical: 0
   axisHorizontal: 0
-  movementSpeed: 23
-  speedBlendTime: 10
+  normalMovementSpeed: 23
+  slowMovementSpeed: 5
+  speedRechargeDelay: 5
   playerRigidBody: {fileID: 0}
 --- !u!135 &13500428
 SphereCollider:

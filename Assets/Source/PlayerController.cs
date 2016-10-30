@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour
 
     // Movement speed properties
     [Header("Movement Speed Properties")]
-    public float movementSpeed = 20.0f;
-    public float speedBlendTime = 50.0f;
-    private float targetMovementSpeed = 0.0f;
-    private float defaultMovementSpeed = 0.0f;
+    public float normalMovementSpeed = 20.0f;
+    public float slowMovementSpeed = 10.0f;
+    public float speedRechargeDelay = 5.0f;
+    private float currentMovementSpeed = 0.0f;
 
     // Can the player move
     private bool canMove = true;
@@ -57,8 +57,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Set the default movement speed
-        defaultMovementSpeed = movementSpeed;
+        // Set the current to be the normal movement speed
+        currentMovementSpeed = normalMovementSpeed;
     }
 
     // Update is called once per frame
@@ -66,9 +66,6 @@ public class PlayerController : MonoBehaviour
     {
         // Set movement axis values
         setMovementAxisValues();
-
-        // Blend movement speed values
-        blendMovementSpeedValues();
 
         // Control pause state
         controlPauseState();
@@ -145,10 +142,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Blend movement speed values
-    private void blendMovementSpeedValues()
+    // Slow down the player
+    public IEnumerator slowDownPlayer()
     {
-        movementSpeed = Mathf.Lerp(movementSpeed, defaultMovementSpeed, Time.deltaTime * speedBlendTime);
+        // Stop current coroutines
+        StopAllCoroutines();
+
+        Debug.Log("Player slowed down");
+
+        // Set the current movement speed to the slow movement speed
+        currentMovementSpeed = slowMovementSpeed;
+
+        yield return new WaitForSeconds(speedRechargeDelay);
+
+        Debug.Log("Player back to normal speed");
+
+        // Set the current movement speed to the normal movement speed
+        currentMovementSpeed = normalMovementSpeed;
     }
 
     // Move the player
@@ -158,7 +168,7 @@ public class PlayerController : MonoBehaviour
         if (canMove)
         {
             // Add forces to the player on the y-axis
-            playerRigidBody.AddForce(new Vector3(movementSpeed * axisHorizontal, movementSpeed * axisVertical, 0.0f));
+            playerRigidBody.AddForce(new Vector3(currentMovementSpeed * axisHorizontal, currentMovementSpeed * axisVertical, 0.0f));
         }
     }
 

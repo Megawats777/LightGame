@@ -28,6 +28,6 @@ public class BoostCheckpoint : MonoBehaviour
     // Boost object
     public void boostObject(PlayerController player)
     {
-        player.movementSpeed += boostVelocity;
+        player.normalMovementSpeed += boostVelocity;
     }
 }

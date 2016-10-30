@@ -44,6 +44,8 @@ MonoBehaviour:
   goldMedalTarget: 0
   silverMedalTarget: 9
   bronzeMedalTarget: 5
+  isGamePaused: 0
+  playerCanPauseGame: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
