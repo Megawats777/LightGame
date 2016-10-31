@@ -153,9 +153,13 @@ public class PlayerController : MonoBehaviour
         // Set the current movement speed to the slow movement speed
         currentMovementSpeed = slowMovementSpeed;
 
+        playerRigidBody.isKinematic = true;
+
         yield return new WaitForSeconds(speedRechargeDelay);
 
         Debug.Log("Player back to normal speed");
+
+        playerRigidBody.isKinematic = false;
 
         // Set the current movement speed to the normal movement speed
         currentMovementSpeed = normalMovementSpeed;
