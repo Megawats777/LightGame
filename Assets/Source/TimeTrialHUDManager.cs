@@ -23,6 +23,9 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Finish Text object
     public Text finishText;
 
+    // Stunned Text object
+    public Text stunnedText;
+
     /*--Info Panel HUD Objects--*/
     [Header("Info Panel HUD Objects")]
 
@@ -91,6 +94,9 @@ public class TimeTrialHUDManager : MonoBehaviour
 
         // Disable all Info Panel HUD Groups
         disableInfoPanelHUDGroups();
+
+        // Hide the stunned text object
+        setStunnedTextVisibility(false);
     }
 
     // Update is called once per frame
@@ -140,6 +146,12 @@ public class TimeTrialHUDManager : MonoBehaviour
     public void updateFinishTextContent(string message)
     {
         finishText.text = message;
+    }
+
+    // Set the visibility of the stunned text object
+    public void setStunnedTextVisibility(bool status)
+    {
+        stunnedText.gameObject.SetActive(status);
     }
 
     // Set the title of the info panel
@@ -273,5 +285,4 @@ public class TimeTrialHUDManager : MonoBehaviour
     {
         timeTrialGameManager.UnpauseGame();
     }
-
 }

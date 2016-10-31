@@ -7,6 +7,10 @@ public class SpeedBlock : MonoBehaviour
     [SerializeField]
     private Vector3 rotationRate;
 
+    // Explosion particle effect
+    [SerializeField, Tooltip("Particle effect to spawn when this speed block is destoryed")]
+    private GameObject explosionParticleEffect;
+
     // Reference to the rigidbody component
     private Rigidbody objectRigidBody;
 
@@ -15,6 +19,14 @@ public class SpeedBlock : MonoBehaviour
 
     // Reference to the collider
     private Collider objectCollider;
+
+    // Reference to the speedblock point light component
+    private Light speedBlockPointLight;
+
+    /*--External References--*/
+    TimeTrialHUDManager timeTrialHUDManager;
+    PlayerController player;
+    CameraController gameCamera;
 
     // Called before start
     public void Awake()
@@ -27,6 +39,18 @@ public class SpeedBlock : MonoBehaviour
 
         // Ge the object's collider
         objectCollider = GetComponent<Collider>();
+
+        // Get the speedblock point light component
+        speedBlockPointLight = GetComponentInChildren<Light>();
+
+        // Get the timeTrialHUDManager
+        timeTrialHUDManager = FindObjectOfType<TimeTrialHUDManager>();
+
+        // Get the player
+        player = FindObjectOfType<PlayerController>();
+
+        // Get the game camera
+        gameCamera = FindObjectOfType<CameraController>();
     }
 
     // Use this for initialization
@@ -56,8 +80,11 @@ public class SpeedBlock : MonoBehaviour
             // Get a reference to the player
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
-            // Slow down the player
-            StartCoroutine(player.slowDownPlayer());
+            // Shake the camera
+            StartCoroutine(gameCamera.shakeCamera());
+
+            // Stun the player
+            StartCoroutine(stunPlayer());
 
             // Disable this speed block
             disableSpeedBlock();
@@ -71,8 +98,49 @@ public class SpeedBlock : MonoBehaviour
         objectCollider.enabled = false;
         meshRenderer.enabled = false;
 
+        // Disable the speedblock point light effect
+        speedBlockPointLight.enabled = false;
+
         // Play a sound effect
 
         // Spawn a particle effect
+        spawnParticleEffect();
+    }
+
+    // Stun the player
+    private IEnumerator stunPlayer()
+    {
+        // Show the stunned text object
+        if (timeTrialHUDManager)
+        {
+            timeTrialHUDManager.setStunnedTextVisibility(true);
+        }
+
+        // Set the rigidbody component to be kinematic
+        player.playerRigidBody.isKinematic = true;
+
+        yield return new WaitForSeconds(player.stunRecoveryDelay);
+
+        // Hide the stunned text object
+        if (timeTrialHUDManager)
+        {
+            timeTrialHUDManager.setStunnedTextVisibility(false);
+        }
+
+        // Set the rigidbody component to not be kinematic
+        player.playerRigidBody.isKinematic = false;
+    }
+
+    // Spawn particle effect
+    private void spawnParticleEffect()
+    {
+        // Is the particle effect exists
+        if (explosionParticleEffect)
+        {
+            // Particle effect spawn location
+            Vector3 particleEffectSpawnLocation = player.transform.position;
+
+            Instantiate(explosionParticleEffect, particleEffectSpawnLocation, Quaternion.identity);
+        }
     }
 }

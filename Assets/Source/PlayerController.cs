@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Speed Properties")]
     public float normalMovementSpeed = 20.0f;
     public float slowMovementSpeed = 10.0f;
-    public float speedRechargeDelay = 5.0f;
+    public float stunRecoveryDelay = 5.0f;
     private float currentMovementSpeed = 0.0f;
 
     // Can the player move
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     /*--External References--*/
     TimeTrialGameManager timeTrialGameManager;
+    TimeTrialHUDManager timeTrialHUDManager;
 
     // Called before start
     public void Awake()
@@ -52,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
         // Get the timeTrialGameManager
         timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
+
+        // Get the timeTrialHUDManager
+        timeTrialHUDManager = FindObjectOfType<TimeTrialHUDManager>();
     }
 
     // Use this for initialization
@@ -140,29 +144,6 @@ public class PlayerController : MonoBehaviour
         {
             axisHorizontal = 0.0f;
         }
-    }
-
-    // Slow down the player
-    public IEnumerator slowDownPlayer()
-    {
-        // Stop current coroutines
-        StopAllCoroutines();
-
-        Debug.Log("Player slowed down");
-
-        // Set the current movement speed to the slow movement speed
-        currentMovementSpeed = slowMovementSpeed;
-
-        playerRigidBody.isKinematic = true;
-
-        yield return new WaitForSeconds(speedRechargeDelay);
-
-        Debug.Log("Player back to normal speed");
-
-        playerRigidBody.isKinematic = false;
-
-        // Set the current movement speed to the normal movement speed
-        currentMovementSpeed = normalMovementSpeed;
     }
 
     // Move the player

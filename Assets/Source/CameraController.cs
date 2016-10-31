@@ -7,8 +7,23 @@ public class CameraController : MonoBehaviour
     // Is the camera tracking the player
     public bool isTrackingPlayer = true;
 
+    // Is the camera shaking
+    public bool isCameraShaking = false;
+
     // Camera blend time
     public float cameraBlendSpeed = 5.0f;
+
+    /*--Camera Shake Properties--*/
+    [Header("Camera Shake Properties")]
+
+    // Intensity of the camera shake
+    public float cameraShakeIntensity = 1.0f;
+
+    // The length of the camera shake
+    public float cameraShakeLength = 0.5f;
+
+    // The position of the camera before the camera
+    private Vector3 preCameraShakePosition;
 
     // Reference to the player's rigidbody component
     private Rigidbody playerRigidBody;
@@ -48,7 +63,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Control camera shake
+        controlCameraShake();
     }
 
     // Called before physics calculations
@@ -86,5 +102,42 @@ public class CameraController : MonoBehaviour
             // Interpolate to the new camera position
             transform.position = Vector3.Lerp(transform.position, newCameraPosition, Time.deltaTime * cameraBlendSpeed);
         }
+    }
+
+    // Control camera shake
+    private void controlCameraShake()
+    {
+        if (isCameraShaking)
+        {
+            // Camera shake positions
+            float cameraShakePosX = preCameraShakePosition.x;
+            float cameraShakePosY = Mathf.Sin(Time.timeSinceLevelLoad * cameraShakeIntensity) + preCameraShakePosition.y;
+            Vector3 cameraShakePosition = new Vector3(cameraShakePosX, cameraShakePosY, transform.position.z);
+
+            // Set the position of the camera
+            transform.position = cameraShakePosition;
+        }
+    }
+
+    // Shake camera
+    public IEnumerator shakeCamera()
+    {
+        // Set the pre camera shake position
+        preCameraShakePosition = transform.position;
+
+        // Stop the tracking the player
+        isTrackingPlayer = false;
+
+        // Set the camera to be shaking
+        isCameraShaking = true;
+
+        // Have a delay
+        yield return new WaitForSeconds(cameraShakeLength);
+
+        // Set the camera to not be shaking
+        isCameraShaking = false;
+
+        // Resume tracking the player
+        isTrackingPlayer = true;
     }
 }
