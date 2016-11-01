@@ -97,8 +97,9 @@ MonoBehaviour:
   isTrackingPlayer: 0
   isCameraShaking: 0
   cameraBlendSpeed: 4.5
-  cameraShakeIntensity: 2
-  cameraShakeLength: 0.5
+  cameraShakeIntensityYAxis: 25
+  cameraShakeIntensityXAxis: 20
+  cameraShakeLength: 1.35
 --- !u!114 &11448108
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -16,8 +16,9 @@ public class CameraController : MonoBehaviour
     /*--Camera Shake Properties--*/
     [Header("Camera Shake Properties")]
 
-    // Intensity of the camera shake
-    public float cameraShakeIntensity = 1.0f;
+    // Intensity of the camera shake per axis
+    public float cameraShakeIntensityYAxis = 1.0f;
+    public float cameraShakeIntensityXAxis = 1.0f;
 
     // The length of the camera shake
     public float cameraShakeLength = 0.5f;
@@ -110,8 +111,8 @@ public class CameraController : MonoBehaviour
         if (isCameraShaking)
         {
             // Camera shake positions
-            float cameraShakePosX = preCameraShakePosition.x;
-            float cameraShakePosY = Mathf.Sin(Time.timeSinceLevelLoad * cameraShakeIntensity) + preCameraShakePosition.y;
+            float cameraShakePosX = Mathf.Cos(Time.timeSinceLevelLoad * cameraShakeIntensityXAxis) + preCameraShakePosition.x;
+            float cameraShakePosY = Mathf.Sin(Time.timeSinceLevelLoad * cameraShakeIntensityYAxis) + preCameraShakePosition.y;
             Vector3 cameraShakePosition = new Vector3(cameraShakePosX, cameraShakePosY, transform.position.z);
 
             // Set the position of the camera

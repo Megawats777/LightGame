@@ -128,14 +128,6 @@ Prefab:
       propertyPath: isTrackingPlayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11416966, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
-      propertyPath: cameraShakeIntensity
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 11416966, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
-      propertyPath: cameraShakeLength
-      value: 1.3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
   m_IsPrefabParent: 0
