@@ -99,7 +99,7 @@ MonoBehaviour:
   cameraBlendSpeed: 4.5
   cameraShakeIntensityYAxis: 25
   cameraShakeIntensityXAxis: 20
-  cameraShakeLength: 1.35
+  cameraShakeLength: 1.5
 --- !u!114 &11448108
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17394,11 +17394,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413964, guid: 9710ee901cd461a48adcabc9a177fc80, type: 2}
       propertyPath: m_LocalScale.y
-      value: 9.794583
-      objectReference: {fileID: 0}
-    - target: {fileID: 11433352, guid: 9710ee901cd461a48adcabc9a177fc80, type: 2}
-      propertyPath: rotationRate.z
-      value: 60
+      value: 12.313304
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9710ee901cd461a48adcabc9a177fc80, type: 2}

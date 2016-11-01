@@ -132,7 +132,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_Intensity: 8
-  m_Range: 15
+  m_Range: 25
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b948a7158415c44b3d9e42f8f3daa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationRate: {x: 0, y: 0, z: 20}
+  rotationRate: {x: 0, y: 0, z: 60}
   explosionParticleEffect: {fileID: 196434, guid: fc13cfb64a247c84e8f4e10c9ffd09d3,
     type: 2}
 --- !u!1001 &100100000
