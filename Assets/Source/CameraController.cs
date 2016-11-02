@@ -4,17 +4,27 @@ using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
+    /*--Camera Tracking Properties--*/
+    [Header("Camera Tracking Properties")]
+
     // Is the camera tracking the player
     public bool isTrackingPlayer = true;
 
-    // Is the camera shaking
-    public bool isCameraShaking = false;
+    // Is the camera tracking the player by a certain axis
+    public bool isCameraTrackingXAxis = true;
+    public bool isCameraTrackingYAxis = true;
 
-    // Camera blend time
-    public float cameraBlendSpeed = 5.0f;
+    // Camera tracking offset
+    public Vector3 cameraTrackingOffset = new Vector3(0.0f, 0.0f, 0.0f);
+
+    // Camera tracking speed time
+    public float cameraTrackingSpeed = 5.0f;
 
     /*--Camera Shake Properties--*/
     [Header("Camera Shake Properties")]
+
+    // Is the camera shaking
+    public bool isCameraShaking = false;
 
     // Intensity of the camera shake per axis
     public float cameraShakeIntensityYAxis = 1.0f;
@@ -84,24 +94,48 @@ public class CameraController : MonoBehaviour
     // Set the position of the camera
     private void setCameraPosition()
     {
-        /*
-        // Set the camera offset values   
-        cameraOffsetX = Mathf.Lerp(cameraOffsetX, cameraPositionOffset * playerController.axisHorizontal, Time.deltaTime * cameraOffsetBlendSpeed);
-        cameraOffsetY = Mathf.Lerp(cameraOffsetY, cameraPositionOffset * playerController.axisVertical, Time.deltaTime * cameraOffsetBlendSpeed);
-        */
-
         // The new camera positions by axis
         float cameraPosX = playerRigidBody.position.x;
         float cameraPosY = playerRigidBody.position.y;
 
+        // The new camera position
+        Vector3 newCameraPosition;
+
         // If the camera is tracking the player
         if (isTrackingPlayer)
         {
-            // The new camera position
-            Vector3 newCameraPosition = new Vector3(cameraPosX, cameraPosY, transform.position.z);
+            // If the camera is tracking the X axis of the player
+            if (isCameraTrackingXAxis && !isCameraTrackingXAxis)
+            {
+                // Only track the X axis of the player
+                newCameraPosition = new Vector3(cameraPosX, transform.position.y, transform.position.z);
+            }
+
+            // If the camera is tracking the Y axis of the player
+            else if (isCameraTrackingYAxis && !isCameraTrackingXAxis)
+            {
+                // Only track the Y axis of the player
+                newCameraPosition = new Vector3(transform.position.x, cameraPosY, transform.position.z);
+            }
+
+            // If the camera is tracking the X and Y axis of the player
+            else if (isCameraTrackingXAxis && isCameraTrackingYAxis)
+            {
+                // Track both the X and Y axis of the player
+                newCameraPosition = new Vector3(cameraPosX, cameraPosY, transform.position.z);
+            }
+
+            // Other wise do not track a position
+            else
+            {
+                newCameraPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            }
+
+            // Add an offset to the new camera position
+            newCameraPosition += new Vector3(cameraTrackingOffset.x, cameraTrackingOffset.y, cameraTrackingOffset.z);
 
             // Interpolate to the new camera position
-            transform.position = Vector3.Lerp(transform.position, newCameraPosition, Time.deltaTime * cameraBlendSpeed);
+            transform.position = Vector3.Lerp(transform.position, newCameraPosition, Time.deltaTime * cameraTrackingSpeed);
         }
     }
 
