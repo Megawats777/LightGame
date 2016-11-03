@@ -169,6 +169,7 @@ MonoBehaviour:
   lightBrightnessChangeSpeed: 5
   activatedParticleSystem: {fileID: 167492, guid: afca06994bfc567488fd67c9c494e2a7,
     type: 2}
+  trackSceneryObjects: []
 --- !u!135 &13531416
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -179,7 +180,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.3405342
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:

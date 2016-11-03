@@ -97,8 +97,8 @@ MonoBehaviour:
   isTrackingPlayer: 0
   isCameraTrackingXAxis: 1
   isCameraTrackingYAxis: 1
-  cameraTrackingOffset: {x: 0, y: 0, z: 0}
-  cameraTrackingSpeed: 7.5
+  cameraTrackingOffset: {x: 0, y: 0}
+  cameraTrackingSpeed: 7
   isCameraShaking: 0
   cameraShakeIntensityYAxis: 25
   cameraShakeIntensityXAxis: 20

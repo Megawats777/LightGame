@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     public bool isCameraTrackingYAxis = true;
 
     // Camera tracking offset
-    public Vector3 cameraTrackingOffset = new Vector3(0.0f, 0.0f, 0.0f);
+    public Vector2 cameraTrackingOffset = new Vector2(0.0f, 0.0f);
 
     // Camera tracking speed time
     public float cameraTrackingSpeed = 5.0f;
@@ -97,6 +97,7 @@ public class CameraController : MonoBehaviour
         // The new camera positions by axis
         float cameraPosX = playerRigidBody.position.x;
         float cameraPosY = playerRigidBody.position.y;
+        float cameraPosZ = transform.position.z;
 
         // The new camera position
         Vector3 newCameraPosition;
@@ -108,21 +109,21 @@ public class CameraController : MonoBehaviour
             if (isCameraTrackingXAxis && !isCameraTrackingXAxis)
             {
                 // Only track the X axis of the player
-                newCameraPosition = new Vector3(cameraPosX, transform.position.y, transform.position.z);
+                newCameraPosition = new Vector3(cameraPosX, transform.position.y, cameraPosZ);
             }
 
             // If the camera is tracking the Y axis of the player
             else if (isCameraTrackingYAxis && !isCameraTrackingXAxis)
             {
                 // Only track the Y axis of the player
-                newCameraPosition = new Vector3(transform.position.x, cameraPosY, transform.position.z);
+                newCameraPosition = new Vector3(transform.position.x, cameraPosY, cameraPosZ);
             }
 
             // If the camera is tracking the X and Y axis of the player
             else if (isCameraTrackingXAxis && isCameraTrackingYAxis)
             {
                 // Track both the X and Y axis of the player
-                newCameraPosition = new Vector3(cameraPosX, cameraPosY, transform.position.z);
+                newCameraPosition = new Vector3(cameraPosX, cameraPosY, cameraPosZ);
             }
 
             // Other wise do not track a position
@@ -131,12 +132,18 @@ public class CameraController : MonoBehaviour
                 newCameraPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             }
 
-            // Add an offset to the new camera position
-            newCameraPosition += new Vector3(cameraTrackingOffset.x, cameraTrackingOffset.y, cameraTrackingOffset.z);
+            // Add an offset to the new camera position for the X and Y axis
+            newCameraPosition += new Vector3(cameraTrackingOffset.x, cameraTrackingOffset.y, 0.0f);
 
             // Interpolate to the new camera position
             transform.position = Vector3.Lerp(transform.position, newCameraPosition, Time.deltaTime * cameraTrackingSpeed);
         }
+    }
+
+    // Set camera tracking offset
+    public void setCameraTrackingOffset(float offsetX, float offsetY)
+    {
+        cameraTrackingOffset = new Vector2(offsetX, offsetY);
     }
 
     // Control camera shake

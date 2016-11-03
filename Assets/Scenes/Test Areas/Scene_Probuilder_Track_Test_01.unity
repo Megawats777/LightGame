@@ -199,6 +199,10 @@ Prefab:
       propertyPath: trackSceneryObjects.Array.data[2]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
   m_IsPrefabParent: 0
@@ -339,6 +343,10 @@ Prefab:
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 13581248, guid: 5d156b4bd2da56444a57f756bb49879d, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d156b4bd2da56444a57f756bb49879d, type: 2}
   m_IsPrefabParent: 0
@@ -392,6 +400,10 @@ Prefab:
     - target: {fileID: 11436416, guid: 5d156b4bd2da56444a57f756bb49879d, type: 2}
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 13581248, guid: 5d156b4bd2da56444a57f756bb49879d, type: 2}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d156b4bd2da56444a57f756bb49879d, type: 2}
@@ -12063,6 +12075,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &843129766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 843129769}
+  - 65: {fileID: 843129768}
+  - 114: {fileID: 843129767}
+  m_Layer: 0
+  m_Name: CameraOffsetZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &843129767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843129766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ae814ab26d7444c8da8e5607a111aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newCameraOffsetX: 10
+  newCameraOffsetY: 0
+--- !u!65 &843129768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843129766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &843129769
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 843129766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.86, y: -2.03, z: 0}
+  m_LocalScale: {x: 1, y: 5.771998, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
 --- !u!1001 &857064942
 Prefab:
   m_ObjectHideFlags: 0
@@ -12114,6 +12180,10 @@ Prefab:
       propertyPath: trackSceneryObjects.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
   m_IsPrefabParent: 0
@@ -12158,6 +12228,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424840, guid: 7a3e48879e5643447bdd3c422e4c3140, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13555894, guid: 7a3e48879e5643447bdd3c422e4c3140, type: 2}
+      propertyPath: m_Radius
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12268,6 +12342,10 @@ Prefab:
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
   m_IsPrefabParent: 0
@@ -12321,6 +12399,10 @@ Prefab:
     - target: {fileID: 11436360, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
@@ -12380,6 +12462,10 @@ Prefab:
       propertyPath: trackSceneryObjects.Array.data[1]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
   m_IsPrefabParent: 0
@@ -12437,6 +12523,60 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1677231143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1677231146}
+  - 65: {fileID: 1677231145}
+  - 114: {fileID: 1677231144}
+  m_Layer: 0
+  m_Name: CameraOffsetZone (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1677231144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677231143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ae814ab26d7444c8da8e5607a111aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newCameraOffsetX: 10
+  newCameraOffsetY: 0
+--- !u!65 &1677231145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677231143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1677231146
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1677231143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 87.91, y: -18.31, z: 0}
+  m_LocalScale: {x: 1.0161844, y: 7.929346, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
 --- !u!1001 &1705947445
 Prefab:
   m_ObjectHideFlags: 0
@@ -12487,6 +12627,10 @@ Prefab:
     - target: {fileID: 11436360, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
@@ -12545,6 +12689,10 @@ Prefab:
     - target: {fileID: 11436360, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
       propertyPath: trackSceneryObjects.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
@@ -12642,6 +12790,10 @@ Prefab:
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
   m_IsPrefabParent: 0
@@ -12650,7 +12802,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh8556
+  m_Name: pb_Mesh8588
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -12812,22 +12964,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2348906, guid: 8d92a8b438692a14aaf917c86a2e0fbe, type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f70a04d19933f094bb64069cd86c5298, type: 2}
-    - target: {fileID: 10871048, guid: 8d92a8b438692a14aaf917c86a2e0fbe, type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 10871048, guid: 8d92a8b438692a14aaf917c86a2e0fbe, type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 10871048, guid: 8d92a8b438692a14aaf917c86a2e0fbe, type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d92a8b438692a14aaf917c86a2e0fbe, type: 2}
   m_IsPrefabParent: 0
@@ -12835,6 +12971,60 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 478556, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
   m_PrefabInternal: {fileID: 1152267928}
+--- !u!1 &2125317467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2125317470}
+  - 65: {fileID: 2125317469}
+  - 114: {fileID: 2125317468}
+  m_Layer: 0
+  m_Name: CameraOffsetZone (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2125317468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125317467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ae814ab26d7444c8da8e5607a111aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newCameraOffsetX: 0
+  newCameraOffsetY: -3
+--- !u!65 &2125317469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125317467}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &2125317470
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125317467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 98.19, y: -1.34, z: 0}
+  m_LocalScale: {x: 6.7749434, y: 2.0202045, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1001 &2127714670
 Prefab:
   m_ObjectHideFlags: 0
@@ -12885,6 +13075,10 @@ Prefab:
     - target: {fileID: 11436360, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
       propertyPath: trackSceneryObjects.Array.data[0]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 13578200, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
+      propertyPath: m_Radius
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}

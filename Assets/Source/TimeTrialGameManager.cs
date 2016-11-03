@@ -143,10 +143,7 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Set the player cannot pause the game
         playerCanPauseGame = false;
-
-        // Stop the game clock
-        endGameClock();
-
+       
         // Show the info panel
         timeTrialHUDManager.openInfoPanel();
 
@@ -165,9 +162,6 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Set the player can pause the game
         playerCanPauseGame = true;
-
-        // Start the game clock
-        startGameClock();
 
         // Show the info panel
         timeTrialHUDManager.closeInfoPanel();
