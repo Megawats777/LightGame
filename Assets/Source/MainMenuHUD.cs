@@ -23,6 +23,10 @@ public class MainMenuHUD : MonoBehaviour
     [Header("HUD Animation Controllers")]
     public Animator mainMenuBackgroundAnimationController;
 
+    /*--HUD Animation Properties--*/
+    [Header("HUD Animation Properties")]
+    public float hudTransitionDelay = 1.0f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -46,31 +50,51 @@ public class MainMenuHUD : MonoBehaviour
         mainMenuTitle.text = title;
     }
 
+    /*--Menu Background Animation Functions--*/
+    
+    // Transition to HUD Group
+    private IEnumerator transitionToHUDGroup(GameObject groupToDisable, GameObject groupToEnable, string newHUDGroupTitle)
+    {
+        // Shrink the background
+        mainMenuBackgroundAnimationController.SetBool("isExpanding", false);
+        mainMenuBackgroundAnimationController.SetBool("isShrinking", true);
+
+        // Disable the designated group
+        groupToDisable.SetActive(false);
+
+        // Have a delay
+        yield return new WaitForSeconds(hudTransitionDelay);
+
+        // Set the title of the main menu background
+        setMainMenuTitle(newHUDGroupTitle);
+
+        // Enable the designated group
+        groupToEnable.SetActive(true);
+
+        // Expand the background
+        mainMenuBackgroundAnimationController.SetBool("isExpanding", true);
+        mainMenuBackgroundAnimationController.SetBool("isShrinking", false);
+    }
+
     /*--Level Select HUD Functions--*/
 
     // Open the level select screen
     public void openLevelSelectScreen()
     {
-        // Set the title of the main menu background
-        setMainMenuTitle(levelSelectGroupTitle);
-
-        // Disable the welcome HUD group
-        welcomeHUDGroup.SetActive(false);
-
-        // Set the level select HUD group to be active
-        levelSelectHUDGroup.SetActive(true);
+        // Transition to HUD Group
+        // Disable the welcome HUD Group
+        // Enable the level select HUD Group
+        // Set the title of the main menu to be the level select title
+        StartCoroutine(transitionToHUDGroup(welcomeHUDGroup, levelSelectHUDGroup, levelSelectGroupTitle));
     }
 
     // Close the level select screen
     public void closeLevelSelectScreen()
     {
-        // Set the title of the main menu background
-        setMainMenuTitle(welcomeGroupTitle);
-
-        // Enable the welcome HUD group
-        welcomeHUDGroup.SetActive(true);
-
-        // Disable the level select HUD group
-        levelSelectHUDGroup.SetActive(false);
+        // Transition to HUD Group
+        // Disable the level select HUD Group
+        // Enable the welcome HUD Group
+        // Set the title of the main menu to be the welcome title
+        StartCoroutine(transitionToHUDGroup(levelSelectHUDGroup, welcomeHUDGroup, welcomeGroupTitle));
     }
 }
