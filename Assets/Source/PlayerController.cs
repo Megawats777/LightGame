@@ -172,4 +172,15 @@ public class PlayerController : MonoBehaviour
         particleTrail.loop = false;
         particleTrail.startLifetime = 0.0f;
     }
+
+    // Pause player
+    public void pausePlayer()
+    {
+        // Set can move to false and set the player rigidbody to be kinematic
+        canMove = false;
+        playerRigidBody.isKinematic = true;
+
+        // Pause the particle trail
+        particleTrail.Pause();
+    }
 }

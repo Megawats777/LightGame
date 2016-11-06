@@ -1,11 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class MainMenuHUD : MonoBehaviour
 {
     // The title text object of the main menu background
     public Text mainMenuTitle;
+
+    // Loading text object
+    public Text loadingText;
+
+    // Fade out image object
+    public Image fadeOutImage;
 
     /*--HUD group titles--*/
     [Header("HUD Group Titles")]
@@ -22,21 +29,29 @@ public class MainMenuHUD : MonoBehaviour
     /*--HUD Animation Controllers--*/
     [Header("HUD Animation Controllers")]
     public Animator mainMenuBackgroundAnimationController;
+    public Animator fadeOutImageAnimationController;
 
     /*--HUD Animation Properties--*/
     [Header("HUD Animation Properties")]
     public float hudTransitionDelay = 1.0f;
+    public float loadingTransitionDelay = 1.0f;
 
 	// Use this for initialization
 	void Start ()
     {
+        // Enable the fade out image
+        fadeOutImage.gameObject.SetActive(true);
+
         // Enable the welcome HUD group
         welcomeHUDGroup.SetActive(true);
 
         // Disable all other HUD groups
         levelSelectHUDGroup.SetActive(false);
         helpHUDGroup.SetActive(false);
-	}
+
+        // Disable the loading text object
+        loadingText.gameObject.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -56,8 +71,7 @@ public class MainMenuHUD : MonoBehaviour
     private IEnumerator transitionToHUDGroup(GameObject groupToDisable, GameObject groupToEnable, string newHUDGroupTitle)
     {
         // Shrink the background
-        mainMenuBackgroundAnimationController.SetBool("isExpanding", false);
-        mainMenuBackgroundAnimationController.SetBool("isShrinking", true);
+        shrinkMenuBackground();
 
         // Disable the designated group
         groupToDisable.SetActive(false);
@@ -72,6 +86,19 @@ public class MainMenuHUD : MonoBehaviour
         groupToEnable.SetActive(true);
 
         // Expand the background
+        expandMenuBackground();
+    }
+
+    // Shrink menu background
+    private void shrinkMenuBackground()
+    {
+        mainMenuBackgroundAnimationController.SetBool("isExpanding", false);
+        mainMenuBackgroundAnimationController.SetBool("isShrinking", true);
+    }
+
+    // Expand menu background
+    private void expandMenuBackground()
+    {
         mainMenuBackgroundAnimationController.SetBool("isExpanding", true);
         mainMenuBackgroundAnimationController.SetBool("isShrinking", false);
     }
@@ -97,4 +124,27 @@ public class MainMenuHUD : MonoBehaviour
         // Set the title of the main menu to be the welcome title
         StartCoroutine(transitionToHUDGroup(levelSelectHUDGroup, welcomeHUDGroup, welcomeGroupTitle));
     }
+
+    // Load a level
+    public void loadLevel(string levelName)
+    {
+        // Transition to the selected level
+        StartCoroutine(transitionToSelectedLevel(levelName));
+    }
+
+    // Transition to the selected level
+    private IEnumerator transitionToSelectedLevel(string name)
+    {
+        // Shrink the menu background
+        shrinkMenuBackground();
+
+        // Show loading text object
+        loadingText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(loadingTransitionDelay);
+
+        // Open the level
+        SceneManager.LoadSceneAsync(name);
+    }
+
 }

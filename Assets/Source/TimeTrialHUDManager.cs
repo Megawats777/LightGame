@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.Scripting;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TimeTrialHUDManager : MonoBehaviour
 {
+    // Fade image
+    public Image fadeImage;
+
     /*--Gameplay HUD Objects--*/
     [Header("Gameplay HUD Objects")]
 
@@ -69,6 +74,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     [Header("UI Animation Controllers")]
     public Animator finishTextAnimator;
     public Animator infoPanelAnimator;
+    public Animator fadeImageAnimator;
 
     // UI Animation Properties
     [Header("UI Animation Properties")]
@@ -78,17 +84,24 @@ public class TimeTrialHUDManager : MonoBehaviour
 
     /*--External References--*/
     private TimeTrialGameManager timeTrialGameManager;
+    private PlayerController player;
 
     // Called before start
     public void Awake()
     {
         // Get the timeTrialGameManager Gameobject
         timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
+
+        // Get the player controller
+        player = FindObjectOfType<PlayerController>();
     }
 
     // Use this for initialization
     void Start()
     {
+        // Enable the fade image
+        fadeImage.gameObject.SetActive(true);
+
         // Enable all HUD Groups
         enableAllHUDGroups();
 
@@ -202,10 +215,6 @@ public class TimeTrialHUDManager : MonoBehaviour
 
     /*----Info Panel Functions----*/
 
-
-    /*--Info Panel Pause Functions--*/
-
-
     /*--Info Panel Game Summary Functions--*/
 
     // Show the game summary HUD
@@ -284,5 +293,49 @@ public class TimeTrialHUDManager : MonoBehaviour
     public void unPauseWrapper()
     {
         timeTrialGameManager.UnpauseGame();
+    }
+
+    /*--Fade Image Functions--*/
+
+    // Fade the screen
+    private void fadeScreen()
+    {
+        fadeImageAnimator.SetBool("isFading", true);
+    }
+
+    /*--Loading Level Functions--*/
+
+    // Load a level by name
+    public void loadLevelByName(string levelName)
+    {
+        // Transition to a level
+        StartCoroutine(transitionToLevel(levelName));
+    }
+
+    // Load the current level
+    public void loadCurrentLevel()
+    {
+        // Transition to a level
+        StartCoroutine(transitionToLevel(SceneManager.GetActiveScene().name));
+    }
+
+    // Transition to a level
+    private IEnumerator transitionToLevel(string name)
+    {
+        // Set the time scale to be 1
+        Time.timeScale = 1.0f;
+
+        // Pause the player
+        player.pausePlayer();
+
+        // Shrink the info panel
+        closeInfoPanel();
+
+        // Show the loading text object
+
+        yield return new WaitForSeconds(1.0f);
+
+        // Load the level
+        SceneManager.LoadSceneAsync(name);
     }
 }
