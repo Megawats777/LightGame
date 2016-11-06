@@ -1531,7 +1531,7 @@ MonoBehaviour:
   infoPanelGroup: {fileID: 154494}
   finishTextAnimator: {fileID: 9560322}
   infoPanelAnimator: {fileID: 9557866}
-  fadeImageAnimator: {fileID: 0}
+  fadeImageAnimator: {fileID: 9528904}
   finishTextOpenDelay: 2
   finishTextCloseDelay: 4
   infoPanelOpenDelay: 2

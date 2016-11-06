@@ -300,7 +300,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Fade the screen
     private void fadeScreen()
     {
-        fadeImageAnimator.SetBool("isFading", true);
+        fadeImageAnimator.SetBool("isFadingIn", true);
     }
 
     /*--Loading Level Functions--*/
@@ -325,11 +325,30 @@ public class TimeTrialHUDManager : MonoBehaviour
         // Set the time scale to be 1
         Time.timeScale = 1.0f;
 
+        // End the game clock
+        timeTrialGameManager.endGameClock();
+
         // Pause the player
         player.pausePlayer();
 
+        // Stop the game camera from following the player
+        CameraController gameCamera = FindObjectOfType<CameraController>();
+        gameCamera.isTrackingPlayer = false;
+
+        // Stop all rotating objects from rotating
+        foreach (RotatingObject ro in FindObjectsOfType<RotatingObject>())
+        {
+            if (ro)
+            {
+                ro.canRotate = false;
+            }
+        }
+
         // Shrink the info panel
         closeInfoPanel();
+
+        // Fade the screen
+        fadeScreen();
 
         // Show the loading text object
 
