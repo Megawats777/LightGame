@@ -45,7 +45,7 @@ GameObject:
   - 4: {fileID: 430496}
   - 114: {fileID: 11495670}
   m_Layer: 0
-  m_Name: 3DWidget
+  m_Name: 3DTextWidget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
