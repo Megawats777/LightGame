@@ -86,6 +86,48 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &35465607
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 15.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -2.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &63740328 stripped
 Transform:
   m_PrefabParentObject: {fileID: 478556, guid: 10ba03c9a7d2a9f45b05e145cef904f3, type: 2}
@@ -12523,6 +12565,14 @@ Prefab:
     - target: {fileID: 465356, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11480322, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11452498, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
+      propertyPath: intensity
+      value: 1.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}

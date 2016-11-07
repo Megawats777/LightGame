@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Scripting;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -341,6 +340,15 @@ public class TimeTrialHUDManager : MonoBehaviour
             if (ro)
             {
                 ro.canRotate = false;
+            }
+        }
+
+        // Pause all particle systems
+        foreach (ParticleSystem particleSystem in FindObjectsOfType<ParticleSystem>())
+        {
+            if (particleSystem)
+            {
+                particleSystem.Pause();
             }
         }
 

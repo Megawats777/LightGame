@@ -67,8 +67,11 @@ public class CameraController : MonoBehaviour
         // Get the rigidbody component from the player sphere
         playerRigidBody = playerSphere.GetComponent<Rigidbody>();
 
-        // Set the focus transform for the dof component
-        dofComponent.focalTransform = playerSphere.transform;
+        if (dofComponent)
+        {
+            // Set the focus transform for the dof component
+            dofComponent.focalTransform = playerSphere.transform;
+        }
     }
 
     // Update is called once per frame
