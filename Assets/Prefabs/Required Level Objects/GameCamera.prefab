@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 0.25
-  intensity: 1.4
+  intensity: 1.6
   blurSize: 1.5
   blurIterations: 2
   blurType: 0
@@ -152,14 +152,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 144286}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd70d448b18cfbc46af26466f752332c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   visualizeFocus: 0
   focalLength: 12
-  focalSize: 0.05
+  focalSize: 0.473
   aperture: 0.5
   focalTransform: {fileID: 0}
   maxBlurSize: 2
