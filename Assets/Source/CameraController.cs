@@ -109,7 +109,7 @@ public class CameraController : MonoBehaviour
         if (isTrackingPlayer)
         {
             // If the camera is tracking the X axis of the player
-            if (isCameraTrackingXAxis && !isCameraTrackingXAxis)
+            if (isCameraTrackingXAxis && !isCameraTrackingYAxis)
             {
                 // Only track the X axis of the player
                 newCameraPosition = new Vector3(cameraPosX, transform.position.y, cameraPosZ);
