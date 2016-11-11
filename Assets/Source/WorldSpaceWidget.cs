@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class WorldSpaceWidget : MonoBehaviour
 {
     // Message for the widget text object to display
@@ -22,7 +23,8 @@ public class WorldSpaceWidget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // Set the text of the widget text object to be the same as the widget message
+        widgetTextObject.text = widgetMessage;
     }
 
     /*--Editor Functions--*/

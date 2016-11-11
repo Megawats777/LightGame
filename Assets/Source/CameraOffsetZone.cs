@@ -8,6 +8,10 @@ public class CameraOffsetZone : MonoBehaviour
     public float newCameraOffsetX = 0.0f;
     public float newCameraOffsetY = 0.0f;
 
+    // Toogles if the camera offset only occurs in this zone
+    [Tooltip("Toogles if the camera offset only occurs in this zone")]
+    public bool offsetOnlyInZone = false;
+
     // Reference to the game camera
     private CameraController gameCamera;
 
@@ -38,6 +42,21 @@ public class CameraOffsetZone : MonoBehaviour
         {
             // Set the offset of the game camera
             gameCamera.setCameraTrackingOffset(newCameraOffsetX, newCameraOffsetY);
+        }
+    }
+
+    // When an object is done overlaping this zone
+    public void OnTriggerExit(Collider other)
+    {
+        // If the camera offset exists only in this zone
+        if (offsetOnlyInZone)
+        {
+            // If the object was the player
+            if (other.gameObject.CompareTag("Player"))
+            {
+                // Set the offset of the camera to be zero
+                gameCamera.setCameraTrackingOffset(0.0f, 0.0f);
+            }
         }
     }
 
