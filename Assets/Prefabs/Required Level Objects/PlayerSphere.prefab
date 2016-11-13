@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axisVertical: 0
   axisHorizontal: 0
-  normalMovementSpeed: 23
+  normalMovementSpeed: 25
   slowMovementSpeed: 0
   stunRecoveryDelay: 3
   playerRigidBody: {fileID: 0}
