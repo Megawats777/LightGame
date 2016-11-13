@@ -292,7 +292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &154936
 GameObject:
   m_ObjectHideFlags: 1
@@ -569,7 +569,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &446424
 Transform:
   m_ObjectHideFlags: 1
@@ -663,7 +663,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scene_Probuilder_Track_Test_01
+          m_StringArgument: Scene_Stage_Ascend_01
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1900,7 +1900,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Stage Two
 
-    "Placeholder"'
+    "Ascend"'
 --- !u!114 &11485810
 MonoBehaviour:
   m_ObjectHideFlags: 1
