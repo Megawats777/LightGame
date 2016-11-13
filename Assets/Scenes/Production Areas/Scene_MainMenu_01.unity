@@ -333,6 +333,18 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 197197989}
+    - target: {fileID: 197398, guid: e0a4482c902d4bd43bad5e0e13e42722, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154096, guid: e0a4482c902d4bd43bad5e0e13e42722, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400994, guid: e0a4482c902d4bd43bad5e0e13e42722, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Scene_Stage_Ascend_01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0a4482c902d4bd43bad5e0e13e42722, type: 2}
   m_IsPrefabParent: 0
