@@ -94,7 +94,7 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 0.7
+        second: 0.4
       data:
         first:
           name: _SunDisk
