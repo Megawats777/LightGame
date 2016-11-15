@@ -98,7 +98,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -173,7 +173,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -251,6 +251,8 @@ MonoBehaviour:
   actionSource: {fileID: 8281752}
   ambeintTrack: {fileID: 8300000, guid: f62daacfd726b9f48afd4c10aec6e41d, type: 3}
   actionTrack: {fileID: 8300000, guid: c9baae563e22c054fbcad19e8567eb03, type: 3}
+  ambientTransitionSpeed: 1
+  actionStateTransitionSpeed: 2
   ambientSnapShot: {fileID: 24500003, guid: 1149a39e01c0f6c4c836cc506333fb93, type: 2}
   actionSnapShot: {fileID: 24582544, guid: 1149a39e01c0f6c4c836cc506333fb93, type: 2}
   gameInactiveSnapShot: {fileID: 24528340, guid: 1149a39e01c0f6c4c836cc506333fb93,
