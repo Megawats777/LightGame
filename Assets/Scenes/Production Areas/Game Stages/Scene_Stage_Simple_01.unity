@@ -19581,6 +19581,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11430466, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
+      propertyPath: clockLength
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430466, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
+      propertyPath: silverMedalTarget
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430466, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
+      propertyPath: bronzeMedalTarget
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
   m_IsPrefabParent: 0

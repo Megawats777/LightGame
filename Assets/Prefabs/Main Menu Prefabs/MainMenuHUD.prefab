@@ -969,7 +969,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Scene_Probuilder_Track_Test_01
+          m_StringArgument: Scene_Stage_Simple_01
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1314,7 +1314,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Stage Four
 
-    "Placeholder"'
+    "Simple"'
 --- !u!114 &11447214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1349,7 +1349,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Stage Six
 
-    "Placeholder"'
+    "Waves"'
 --- !u!114 &11447342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1384,7 +1384,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Stage Five
 
-    "Placeholder"'
+    "Down"'
 --- !u!114 &11447738
 MonoBehaviour:
   m_ObjectHideFlags: 1
