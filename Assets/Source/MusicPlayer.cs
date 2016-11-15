@@ -16,6 +16,11 @@ public class MusicPlayer : MonoBehaviour
     // The action track to playe
     public AudioClip actionTrack;
 
+    // Mixer properties
+    [Header("Mixer Properties")]
+    public float ambientTransitionSpeed = 1.0f;
+    public float actionStateTransitionSpeed = 1.0f;
+
     // Mixer snapshots
     [Header("Mixer Snapshots")]
     public AudioMixerSnapshot ambientSnapShot;
@@ -38,8 +43,8 @@ public class MusicPlayer : MonoBehaviour
         ambientSource.Play();
         actionSource.Play();
 
-        // Transtion to the ambeint snapshot
-        ambientSnapShot.TransitionTo(1.0f);
+        // Transition to the ambient snapshot
+        transitionToAmbientSnapshot();
     }
 
     // Update is called once per frame
@@ -55,15 +60,21 @@ public class MusicPlayer : MonoBehaviour
         actionSource.clip = actionTrack;
     }
 
+    // Transition to the ambient snapshot
+    public void transitionToAmbientSnapshot()
+    {
+        ambientSnapShot.TransitionTo(ambientTransitionSpeed);
+    }
+
     // Transition to action snapshot
     public void transitionToActionSnapshot()
     {
-        actionSnapShot.TransitionTo(1.0f);
+        actionSnapShot.TransitionTo(actionStateTransitionSpeed);
     }
 
     // Transition to game inactive snapshot
     public void transitionToGameInactiveSnapshot()
     {
-        gameInactiveSnapShot.TransitionTo(1.0f);
+        gameInactiveSnapShot.TransitionTo(actionStateTransitionSpeed * Time.timeScale);
     }
 }

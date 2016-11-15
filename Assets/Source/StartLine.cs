@@ -45,6 +45,9 @@ public class StartLine : MonoBehaviour
             // Start the game clock
             timeTrialGameManager.startGameClock();
 
+            // Mark the game as started
+            timeTrialGameManager.hasGameStarted = true;
+
             // Set the game camera to follow the player
             cameraController.isTrackingPlayer = true;
         }

@@ -35,9 +35,6 @@ public class FinishLine : MonoBehaviour
         // If the overlaping object is the player
         if (other.gameObject.CompareTag("Player"))
         {
-            // Transition to the inactive audio snapshot
-            musicPlayer.transitionToGameInactiveSnapshot();
-
             // End the game
             timeTrialGameManager.endGame();
         }

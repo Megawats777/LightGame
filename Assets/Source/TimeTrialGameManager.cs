@@ -26,6 +26,10 @@ public class TimeTrialGameManager : MonoBehaviour
     /*--External References--*/
     private TimeTrialHUDManager timeTrialHUDManager;
     private PlayerController player;
+    private MusicPlayer musicPlayer;
+
+    // Has the game started
+    public bool hasGameStarted = false;
 
     // Called before start
     public void Awake()
@@ -35,6 +39,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Get the player controller
         player = FindObjectOfType<PlayerController>();
+
+        // Get the music player
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     // Use this for initialization
@@ -138,6 +145,9 @@ public class TimeTrialGameManager : MonoBehaviour
         // Set the time scale to be 0
         Time.timeScale = 0.0f;
 
+        // Transition to the inactive game audio state
+        musicPlayer.transitionToGameInactiveSnapshot();
+
         // Set the game as paused
         isGamePaused = true;
 
@@ -156,6 +166,18 @@ public class TimeTrialGameManager : MonoBehaviour
     {
         // Set the time scale to be 1
         Time.timeScale = 1.0f;
+
+        // If the game has started transition to the action snapshot
+        if (hasGameStarted)
+        {
+            musicPlayer.transitionToActionSnapshot();
+        }
+
+        // If the game has not started transition to the ambient snapshot
+        else if (hasGameStarted == false)
+        {
+            musicPlayer.transitionToAmbientSnapshot();
+        }
 
         // Set the game as not paused
         isGamePaused = false;
