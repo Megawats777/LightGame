@@ -1,30 +1,45 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using System.Collections;
 
 public class MusicPlayer : MonoBehaviour
 {
-    // A list of songs to play
-    [SerializeField]
-    private AudioClip[] levelMusic;
+    // The audio sources for the music
+    [Header("Audio Sources")]
+    public AudioSource ambientSource;
+    public AudioSource actionSource;
 
-    // Reference to the audio source component
-    private AudioSource audioSource;
+    // The ambient track to play
+    [Header("Tracks to Play")]
+    public AudioClip ambeintTrack;
+
+    // The action track to playe
+    public AudioClip actionTrack;
+
+    // Mixer snapshots
+    [Header("Mixer Snapshots")]
+    public AudioMixerSnapshot ambientSnapShot;
+    public AudioMixerSnapshot actionSnapShot;
+    public AudioMixerSnapshot gameInactiveSnapShot;
 
     // Called before start
     public void Awake()
     {
-        // Get the audio source component
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     // Use this for initialization
     void Start()
     {
-        // Set the song to play
-        setSongToPlay();
+        // Set the clips for the audio sources
+        setAudioSourceClips();
 
-        // Play the song
-        audioSource.Play();
+        // Play the audio sources
+        ambientSource.Play();
+        actionSource.Play();
+
+        // Transtion to the ambeint snapshot
+        ambientSnapShot.TransitionTo(1.0f);
     }
 
     // Update is called once per frame
@@ -33,16 +48,22 @@ public class MusicPlayer : MonoBehaviour
 
     }
 
-    // Set the song to play
-    private void setSongToPlay()
+    // Set the clips for the audio sources
+    private void setAudioSourceClips()
     {
-        // The selected song
-        AudioClip selectedSong;
+        ambientSource.clip = ambeintTrack;
+        actionSource.clip = actionTrack;
+    }
 
-        // Set the selected song from the list of possible entries
-        selectedSong = levelMusic[Random.Range(0, levelMusic.Length)];
+    // Transition to action snapshot
+    public void transitionToActionSnapshot()
+    {
+        actionSnapShot.TransitionTo(1.0f);
+    }
 
-        // Set the audio clip of the audio source component
-        audioSource.clip = selectedSong;
+    // Transition to game inactive snapshot
+    public void transitionToGameInactiveSnapshot()
+    {
+        gameInactiveSnapShot.TransitionTo(1.0f);
     }
 }

@@ -6,6 +6,7 @@ public class StartLine : MonoBehaviour
     /*--External References--*/
     private TimeTrialGameManager timeTrialGameManager;
     private CameraController cameraController;
+    private MusicPlayer musicPlayer;
 
     // Called before start
     public void Awake()
@@ -15,6 +16,9 @@ public class StartLine : MonoBehaviour
 
         // Get the camera controller
         cameraController = FindObjectOfType<CameraController>();
+
+        // Get the music player
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     // Use this for initialization
@@ -35,6 +39,9 @@ public class StartLine : MonoBehaviour
         // If the overlaping object is the player
         if (other.gameObject.CompareTag("Player"))
         {
+            // Transition to the action audio snapshot
+            musicPlayer.transitionToActionSnapshot();
+
             // Start the game clock
             timeTrialGameManager.startGameClock();
 

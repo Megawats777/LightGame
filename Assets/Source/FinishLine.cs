@@ -5,12 +5,16 @@ public class FinishLine : MonoBehaviour
 {
     /*--External References--*/
     private TimeTrialGameManager timeTrialGameManager;
+    private MusicPlayer musicPlayer;
 
     // Called before start
     public void Awake()
     {
         // Get the timeTrialGameManager
         timeTrialGameManager = FindObjectOfType<TimeTrialGameManager>();
+
+        // Get the music player
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     // Use this for initialization
@@ -31,6 +35,9 @@ public class FinishLine : MonoBehaviour
         // If the overlaping object is the player
         if (other.gameObject.CompareTag("Player"))
         {
+            // Transition to the inactive audio snapshot
+            musicPlayer.transitionToGameInactiveSnapshot();
+
             // End the game
             timeTrialGameManager.endGame();
         }
