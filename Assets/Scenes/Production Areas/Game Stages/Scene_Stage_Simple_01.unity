@@ -15216,22 +15216,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 11412398, guid: 649971723695b2244b2b7183b892ec12, type: 2}
-      propertyPath: mixerStateTransitionSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8281752, guid: 649971723695b2244b2b7183b892ec12, type: 2}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8298790, guid: 649971723695b2244b2b7183b892ec12, type: 2}
-      propertyPath: m_Volume
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 11412398, guid: 649971723695b2244b2b7183b892ec12, type: 2}
-      propertyPath: actionStateTransitionSpeed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 649971723695b2244b2b7183b892ec12, type: 2}
   m_IsPrefabParent: 0
@@ -33687,6 +33671,34 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 420590, guid: 53236687d344b3f4aa1a4d82bc02474b, type: 2}
   m_PrefabInternal: {fileID: 1788246671}
+--- !u!1 &1840906633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1840906634}
+  m_Layer: 0
+  m_Name: 3D HUD Widgets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1840906634
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840906633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2109781890}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1001 &1853697110
 Prefab:
   m_ObjectHideFlags: 0
@@ -35820,6 +35832,56 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 413964, guid: 9710ee901cd461a48adcabc9a177fc80, type: 2}
   m_PrefabInternal: {fileID: 2095204356}
+--- !u!1001 &2109781889
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1840906634}
+    m_Modifications:
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 14.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495670, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+      propertyPath: widgetMessage
+      value: Simple
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &2109781890 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 430496, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
+  m_PrefabInternal: {fileID: 2109781889}
 --- !u!1 &2136068643
 GameObject:
   m_ObjectHideFlags: 0
