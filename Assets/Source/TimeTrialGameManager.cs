@@ -237,6 +237,12 @@ public class TimeTrialGameManager : MonoBehaviour
             // Set the title of the info panel
             timeTrialHUDManager.setInfoPanelTitle("Game Over");
 
+            // Dim all restored light checkpoints
+            foreach (LightCheckpoint checkpoint in FindObjectsOfType<LightCheckpoint>())
+            {
+                checkpoint.dimCheckpointLight();
+            }
+
             // Open the finish text object
             StartCoroutine(timeTrialHUDManager.openFinishTextObject(timeTrialHUDManager.finishTextOpenDelay));
 

@@ -3,6 +3,9 @@ using System.Collections;
 
 public class LightCheckpoint : MonoBehaviour
 {
+    // Has the checkpoint been restored
+    private bool isRestored = false;
+
     // The activated light brightness
     private float activateTargetLightBrightness = 0.0f;
 
@@ -81,6 +84,17 @@ public class LightCheckpoint : MonoBehaviour
         checkpointLight.intensity = Mathf.Lerp(checkpointLight.intensity, lightTargetBrightness, Time.deltaTime * lightBrightnessChangeSpeed);
     }
 
+    // Dim the checkpoint light
+    public void dimCheckpointLight()
+    {
+        // If the checkpoint has been restored
+        if (isRestored)
+        {
+            // Set the target intensity of the checkpoint light to be zero
+            lightTargetBrightness = 0.0f;
+        }
+    }
+
     // When an object overlaps with the object
     public void OnTriggerEnter(Collider other)
     {
@@ -92,6 +106,9 @@ public class LightCheckpoint : MonoBehaviour
 
             // Disable the sphere collider
             checkpointCollider.enabled = false;
+
+            // Mark the checkpoint as restored
+            isRestored = true;
 
             // If the light checkpoint has the tag "Checkpoint"
             if (gameObject.CompareTag("Checkpoint"))
