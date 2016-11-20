@@ -20,17 +20,19 @@ public class MusicPlayer : MonoBehaviour
     [Header("Mixer Properties")]
     public float ambientTransitionSpeed = 1.0f;
     public float actionStateTransitionSpeed = 1.0f;
+    public float mutedStateTransitionSpeed = 1.0f;
 
     // Mixer snapshots
     [Header("Mixer Snapshots")]
     public AudioMixerSnapshot ambientSnapShot;
     public AudioMixerSnapshot actionSnapShot;
     public AudioMixerSnapshot gameInactiveSnapShot;
+    public AudioMixerSnapshot mutedSnapShot;
 
     // Called before start
     public void Awake()
     {
-        
+
     }
 
     // Use this for initialization
@@ -76,5 +78,11 @@ public class MusicPlayer : MonoBehaviour
     public void transitionToGameInactiveSnapshot()
     {
         gameInactiveSnapShot.TransitionTo(actionStateTransitionSpeed * Time.timeScale);
+    }
+
+    // Transition to the muted snapshot
+    public void transitionToMutedSnapShot()
+    {
+        mutedSnapShot.TransitionTo(mutedStateTransitionSpeed * Time.timeScale);
     }
 }

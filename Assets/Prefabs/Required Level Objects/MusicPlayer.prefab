@@ -249,14 +249,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambientSource: {fileID: 8298790}
   actionSource: {fileID: 8281752}
-  ambeintTrack: {fileID: 8300000, guid: f62daacfd726b9f48afd4c10aec6e41d, type: 3}
+  ambeintTrack: {fileID: 8300000, guid: ef28def429d6f3941bcf6171e53e89a0, type: 3}
   actionTrack: {fileID: 8300000, guid: c9baae563e22c054fbcad19e8567eb03, type: 3}
   ambientTransitionSpeed: 1
-  actionStateTransitionSpeed: 2
+  actionStateTransitionSpeed: 0.5
+  mutedStateTransitionSpeed: 1
   ambientSnapShot: {fileID: 24500003, guid: 1149a39e01c0f6c4c836cc506333fb93, type: 2}
   actionSnapShot: {fileID: 24582544, guid: 1149a39e01c0f6c4c836cc506333fb93, type: 2}
   gameInactiveSnapShot: {fileID: 24528340, guid: 1149a39e01c0f6c4c836cc506333fb93,
     type: 2}
+  mutedSnapShot: {fileID: 24515392, guid: 1149a39e01c0f6c4c836cc506333fb93, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

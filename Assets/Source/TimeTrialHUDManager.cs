@@ -86,6 +86,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     private TimeTrialGameManager timeTrialGameManager;
     private PlayerController player;
     private CameraController gameCamera;
+    private MusicPlayer musicPlayer;
 
     // Called before start
     public void Awake()
@@ -98,6 +99,9 @@ public class TimeTrialHUDManager : MonoBehaviour
 
         // Get the gameCamera
         gameCamera = FindObjectOfType<CameraController>();
+
+        // Get the music player
+        musicPlayer = FindObjectOfType<MusicPlayer>();
     }
 
     // Use this for initialization
@@ -347,7 +351,11 @@ public class TimeTrialHUDManager : MonoBehaviour
         CameraController gameCamera = FindObjectOfType<CameraController>();
         gameCamera.isTrackingPlayer = false;
 
+        // Stop the game camera from shaking
         gameCamera.isCameraShaking = false;
+
+        // Transition to the muted music audio state
+        musicPlayer.transitionToMutedSnapShot();
 
         // Stop all rotating objects from rotating
         foreach (RotatingObject ro in FindObjectsOfType<RotatingObject>())
