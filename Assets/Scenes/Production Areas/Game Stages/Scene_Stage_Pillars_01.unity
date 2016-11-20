@@ -41662,7 +41662,7 @@ Transform:
   - {fileID: 1567945986}
   - {fileID: 652519679}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1001 &1128287744
 Prefab:
   m_ObjectHideFlags: 0
@@ -46356,7 +46356,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11430466, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
       propertyPath: clockLength
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 11430466, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
       propertyPath: silverMedalTarget

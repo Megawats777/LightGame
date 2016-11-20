@@ -118,7 +118,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 30
+      scalar: 45
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -253,7 +253,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.5714286
+          value: 0.8571429
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -419,11 +419,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 120
+    cnt0: 250
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 160
+    cntmax0: 300
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
@@ -1420,7 +1420,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     m_Bounce:
-      scalar: 1
+      scalar: 0.23
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1495,7 +1495,7 @@ ParticleSystem:
       serializedVersion: 2
       m_Bits: 4294967295
     maxCollisionShapes: 256
-    quality: 0
+    quality: 2
     voxelSize: 0.5
     collisionMessages: 0
     collidesWithDynamic: 1
@@ -1545,7 +1545,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
