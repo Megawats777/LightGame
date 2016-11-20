@@ -85,6 +85,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     /*--External References--*/
     private TimeTrialGameManager timeTrialGameManager;
     private PlayerController player;
+    private CameraController gameCamera;
 
     // Called before start
     public void Awake()
@@ -94,6 +95,9 @@ public class TimeTrialHUDManager : MonoBehaviour
 
         // Get the player controller
         player = FindObjectOfType<PlayerController>();
+
+        // Get the gameCamera
+        gameCamera = FindObjectOfType<CameraController>();
     }
 
     // Use this for initialization
@@ -342,6 +346,8 @@ public class TimeTrialHUDManager : MonoBehaviour
         // Stop the game camera from following the player
         CameraController gameCamera = FindObjectOfType<CameraController>();
         gameCamera.isTrackingPlayer = false;
+
+        gameCamera.isCameraShaking = false;
 
         // Stop all rotating objects from rotating
         foreach (RotatingObject ro in FindObjectsOfType<RotatingObject>())

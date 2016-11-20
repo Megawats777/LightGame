@@ -164,6 +164,9 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    
+
+
     // Shake camera
     public IEnumerator shakeCamera()
     {
