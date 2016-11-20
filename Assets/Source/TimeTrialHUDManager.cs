@@ -38,6 +38,7 @@ public class TimeTrialHUDManager : MonoBehaviour
 
     /*--Info Panel HUD Groups--*/
     [Header("Info Panel HUD Groups")]
+    public GameObject gameplayHUDGroup;
     public GameObject pauseInfoGroup;
     public GameObject gameSummaryInfoGroup;
 
@@ -210,6 +211,14 @@ public class TimeTrialHUDManager : MonoBehaviour
     {
         infoPanelAnimator.SetBool("isExpanding", false);
         infoPanelAnimator.SetBool("isShrinking", true);
+    }
+
+    /*-----Gameplay HUD Group Functions------*/
+
+    // Set the visibility of the gameplay HUD Group
+    public void setGameplayHUDGroupVisibility(bool status)
+    {
+        gameplayHUDGroup.SetActive(status);
     }
 
     /*----Info Panel Functions----*/

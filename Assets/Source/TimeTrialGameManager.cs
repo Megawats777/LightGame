@@ -153,7 +153,10 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Set the player cannot pause the game
         playerCanPauseGame = false;
-       
+
+        // Hide the gameplay HUD group
+        timeTrialHUDManager.setGameplayHUDGroupVisibility(false);
+
         // Show the info panel
         timeTrialHUDManager.openInfoPanel();
 
@@ -185,7 +188,10 @@ public class TimeTrialGameManager : MonoBehaviour
         // Set the player can pause the game
         playerCanPauseGame = true;
 
-        // Show the info panel
+        // Show the gameplay HUD group
+        timeTrialHUDManager.setGameplayHUDGroupVisibility(true);
+
+        // Close the info panel
         timeTrialHUDManager.closeInfoPanel();
     }
 
@@ -201,6 +207,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
         // Stop the game clock
         endGameClock();
+
+        // Hide the gameplay HUD group
+        timeTrialHUDManager.setGameplayHUDGroupVisibility(false);
 
         // If the clock length is greater than 0
         if (clockLength > 0)
