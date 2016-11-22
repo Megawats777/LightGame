@@ -164,8 +164,12 @@ public class CameraController : MonoBehaviour
         }
     }
 
-    
-
+    // Stop tracking the player
+    public void stopTrackingPlayer()
+    {
+        isCameraShaking = false;
+        cameraTrackingSpeed = 0.0f;
+    }
 
     // Shake camera
     public IEnumerator shakeCamera()

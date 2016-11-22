@@ -349,7 +349,7 @@ public class TimeTrialHUDManager : MonoBehaviour
 
         // Stop the game camera from following the player
         CameraController gameCamera = FindObjectOfType<CameraController>();
-        gameCamera.isTrackingPlayer = false;
+        gameCamera.stopTrackingPlayer();
 
         // Stop the game camera from shaking
         gameCamera.isCameraShaking = false;

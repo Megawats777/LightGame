@@ -16140,7 +16140,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495670, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
       propertyPath: widgetMessage
-      value: Hover over the white star to start the race.
+      value: Hover over the white cube to start the race.
       objectReference: {fileID: 0}
     - target: {fileID: 184160, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
       propertyPath: m_Name
@@ -16430,7 +16430,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495670, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
       propertyPath: widgetMessage
-      value: Hover over the yellow star to finish the race.
+      value: Hover over the yellow cube to finish the race.
       objectReference: {fileID: 0}
     - target: {fileID: 184160, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
       propertyPath: m_Name
@@ -56282,7 +56282,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11495670, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
       propertyPath: widgetMessage
-      value: To restore a light hover over a glowing cube.
+      value: To restore a light hover over a blue cube.
       objectReference: {fileID: 0}
     - target: {fileID: 184160, guid: 11522e7ac256e6e4585938e16e30044f, type: 2}
       propertyPath: m_Name
