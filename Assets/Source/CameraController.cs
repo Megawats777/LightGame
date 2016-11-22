@@ -48,11 +48,17 @@ public class CameraController : MonoBehaviour
     // Reference to depth of field component
     private DepthOfField dofComponent;
 
+    // Reference to the motion blur component
+    private CameraMotionBlur motionBlur;
+
     // Called before start
     public void Awake()
     {
         // Get the depth of field component
         dofComponent = GetComponent<DepthOfField>();
+
+        // Get the motion blur component
+        motionBlur = GetComponent<CameraMotionBlur>();
 
         // Get a reference to the player
         playerSphere = GameObject.FindGameObjectWithTag("Player");
@@ -66,6 +72,12 @@ public class CameraController : MonoBehaviour
 
         // Get the rigidbody component from the player sphere
         playerRigidBody = playerSphere.GetComponent<Rigidbody>();
+
+        // Disable the motion blur component
+        if (motionBlur)
+        {
+            setMotionBlurEnabledState(false);
+        }
 
         if (dofComponent)
         {
@@ -172,7 +184,7 @@ public class CameraController : MonoBehaviour
     }
 
     // Shake camera
-    public IEnumerator shakeCamera()
+    public IEnumerator shakeCamera(float length)
     {
         // Set the pre camera shake position
         preCameraShakePosition = transform.position;
@@ -184,12 +196,18 @@ public class CameraController : MonoBehaviour
         isCameraShaking = true;
 
         // Have a delay
-        yield return new WaitForSeconds(cameraShakeLength);
+        yield return new WaitForSeconds(length);
 
         // Set the camera to not be shaking
         isCameraShaking = false;
 
         // Resume tracking the player
         isTrackingPlayer = true;
+    }
+
+    // Set motion blur enabled state
+    public void setMotionBlurEnabledState(bool state)
+    {
+        motionBlur.enabled = state;
     }
 }

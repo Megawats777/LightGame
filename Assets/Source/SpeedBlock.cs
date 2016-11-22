@@ -81,7 +81,7 @@ public class SpeedBlock : MonoBehaviour
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
             // Shake the camera
-            StartCoroutine(gameCamera.shakeCamera());
+            StartCoroutine(gameCamera.shakeCamera(player.stunRecoveryDelay));
 
             // Stun the player
             StartCoroutine(stunPlayer());
@@ -110,6 +110,9 @@ public class SpeedBlock : MonoBehaviour
     // Stun the player
     private IEnumerator stunPlayer()
     {
+        // Enable the camera's motion blur effect
+        gameCamera.setMotionBlurEnabledState(true);
+
         // Show the stunned text object
         if (timeTrialHUDManager)
         {
@@ -129,6 +132,9 @@ public class SpeedBlock : MonoBehaviour
 
         // Set the rigidbody component to not be kinematic
         player.playerRigidBody.isKinematic = false;
+
+        // Disable the camera's motion blur effect
+        gameCamera.setMotionBlurEnabledState(false);
     }
 
     // Spawn particle effect
