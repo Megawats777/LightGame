@@ -125,6 +125,20 @@ public class MainMenuHUD : MonoBehaviour
         StartCoroutine(transitionToHUDGroup(levelSelectHUDGroup, welcomeHUDGroup, welcomeGroupTitle));
     }
 
+    /*--Help Group HUD Functions--*/
+
+    // Open the help screen
+    public void openHelpScreen()
+    {
+        StartCoroutine(transitionToHUDGroup(welcomeHUDGroup, helpHUDGroup, helpGroupTitle));
+    }
+
+    // Close the help screen
+    public void closeHelpScreen()
+    {
+        StartCoroutine(transitionToHUDGroup(helpHUDGroup, welcomeHUDGroup, welcomeGroupTitle));
+    }
+
     // Load a level
     public void loadLevel(string levelName)
     {
