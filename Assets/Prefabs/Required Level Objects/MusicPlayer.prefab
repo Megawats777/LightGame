@@ -98,7 +98,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -173,7 +173,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ambientSource: {fileID: 8298790}
   actionSource: {fileID: 8281752}
-  ambeintTrack: {fileID: 8300000, guid: ef28def429d6f3941bcf6171e53e89a0, type: 3}
+  ambeintTrack: {fileID: 8300000, guid: 9a72414f38dc1cf4ba1126509990d990, type: 3}
   actionTrack: {fileID: 8300000, guid: c9baae563e22c054fbcad19e8567eb03, type: 3}
   ambientTransitionSpeed: 1
   actionStateTransitionSpeed: 0.5

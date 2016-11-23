@@ -28,6 +28,9 @@ public class LightCheckpoint : MonoBehaviour
     // Reference to the checkpoint mesh
     private Renderer checkpointMesh;
 
+    // Reference to the audio source component
+    private AudioSource audioSource;
+
     // Reference to the boost checkpoint class
     private BoostCheckpoint boostCheckpoint;
 
@@ -45,6 +48,9 @@ public class LightCheckpoint : MonoBehaviour
 
         // Get the light component
         checkpointLight = GetComponent<Light>();
+
+        // Get the audio source component
+        audioSource = GetComponent<AudioSource>();
 
         // Get the checkpoint mesh renderer
         checkpointMesh = GetComponentInChildren<Renderer>();
@@ -127,6 +133,9 @@ public class LightCheckpoint : MonoBehaviour
                 boostCheckpoint.boostObject(player);
             }
 
+            // Play a sound
+            playAudioSource();
+
             // Restore track scenery objects
             restoreTrackSceneryObjects();
 
@@ -171,6 +180,15 @@ public class LightCheckpoint : MonoBehaviour
         {
             // Set the colour of the particle system
             particleSystem.startColor = checkpointLight.color;
+        }
+    }
+
+    // Play a audio source
+    private void playAudioSource()
+    {
+        if (audioSource.clip)
+        {
+            audioSource.Play();
         }
     }
 }
