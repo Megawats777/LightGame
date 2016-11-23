@@ -8,6 +8,9 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Fade image
     public Image fadeImage;
 
+    // The loading text object
+    public GameObject loadingText;
+
     /*--Gameplay HUD Objects--*/
     [Header("Gameplay HUD Objects")]
 
@@ -109,6 +112,9 @@ public class TimeTrialHUDManager : MonoBehaviour
     {
         // Enable the fade image
         fadeImage.gameObject.SetActive(true);
+
+        // Disable the loading text object
+        loadingText.SetActive(false);
 
         // Enable all HUD Groups
         enableAllHUDGroups();
@@ -382,6 +388,7 @@ public class TimeTrialHUDManager : MonoBehaviour
         fadeScreen();
 
         // Show the loading text object
+        loadingText.SetActive(true);
 
         yield return new WaitForSeconds(1.0f);
 

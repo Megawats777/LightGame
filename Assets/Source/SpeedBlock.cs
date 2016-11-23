@@ -23,6 +23,9 @@ public class SpeedBlock : MonoBehaviour
     // Reference to the speedblock point light component
     private Light speedBlockPointLight;
 
+    // Reference to the audio source component
+    private AudioSource audioSource;
+
     /*--External References--*/
     TimeTrialHUDManager timeTrialHUDManager;
     PlayerController player;
@@ -42,6 +45,9 @@ public class SpeedBlock : MonoBehaviour
 
         // Get the speedblock point light component
         speedBlockPointLight = GetComponentInChildren<Light>();
+
+        // Get the audio source component
+        audioSource = GetComponent<AudioSource>();
 
         // Get the timeTrialHUDManager
         timeTrialHUDManager = FindObjectOfType<TimeTrialHUDManager>();
@@ -102,6 +108,7 @@ public class SpeedBlock : MonoBehaviour
         speedBlockPointLight.enabled = false;
 
         // Play a sound effect
+        playAudioSource();
 
         // Spawn a particle effect
         spawnParticleEffect();
@@ -135,6 +142,15 @@ public class SpeedBlock : MonoBehaviour
 
         // Disable the camera's motion blur effect
         gameCamera.setMotionBlurEnabledState(false);
+    }
+
+    // Play audio source component
+    private void playAudioSource()
+    {
+        if (audioSource.clip)
+        {
+            audioSource.Play();
+        }
     }
 
     // Spawn particle effect
