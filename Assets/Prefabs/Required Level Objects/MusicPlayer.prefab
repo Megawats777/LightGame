@@ -250,7 +250,11 @@ MonoBehaviour:
   ambientSource: {fileID: 8298790}
   actionSource: {fileID: 8281752}
   ambeintTrack: {fileID: 8300000, guid: 9a72414f38dc1cf4ba1126509990d990, type: 3}
-  actionTrack: {fileID: 8300000, guid: c9baae563e22c054fbcad19e8567eb03, type: 3}
+  actionTracks:
+  - {fileID: 8300000, guid: 60f36e1afedf23848b1b25216076969f, type: 3}
+  - {fileID: 8300000, guid: b35d421f86b82ab4d9be18ae66ac27ca, type: 3}
+  - {fileID: 8300000, guid: 325995178a329e1458022815eea67c92, type: 3}
+  - {fileID: 8300000, guid: d619cf27f6d6dd347bf9f5901d1710d1, type: 3}
   ambientTransitionSpeed: 1
   actionStateTransitionSpeed: 0.5
   mutedStateTransitionSpeed: 1

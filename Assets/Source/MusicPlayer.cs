@@ -13,8 +13,8 @@ public class MusicPlayer : MonoBehaviour
     [Header("Tracks to Play")]
     public AudioClip ambeintTrack;
 
-    // The action track to playe
-    public AudioClip actionTrack;
+    // The action tracks to play
+    public AudioClip[] actionTracks;
 
     // Mixer properties
     [Header("Mixer Properties")]
@@ -45,21 +45,42 @@ public class MusicPlayer : MonoBehaviour
         ambientSource.Play();
         actionSource.Play();
 
-        // Transition to the ambient snapshot
-        transitionToAmbientSnapshot();
+        // Instantly transition to the ambient snapshot
+        ambientSnapShot.TransitionTo(0.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     // Set the clips for the audio sources
     private void setAudioSourceClips()
     {
         ambientSource.clip = ambeintTrack;
-        actionSource.clip = actionTrack;
+
+        // Set the action track to play
+        setActionTrackToPlay();
+    }
+
+    // Set the action track to play
+    private void setActionTrackToPlay()
+    {
+        // Track selection index number
+        int trackSelectionIndex = Random.Range(0, actionTracks.Length);
+
+        // If the track in the desired slot exists set the clip for the audio source
+        if (actionTracks[trackSelectionIndex])
+        {
+            actionSource.clip = actionTracks[trackSelectionIndex];
+        }
+        // If the track does not exist print a warning message
+        if (!actionTracks[trackSelectionIndex])
+        {
+            Debug.LogWarning("Track in slot " + trackSelectionIndex.ToString() + " does not exist");
+        }
+        
     }
 
     // Transition to the ambient snapshot
