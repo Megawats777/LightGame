@@ -76,7 +76,7 @@ public class MusicPlayer : MonoBehaviour
             actionSource.clip = actionTracks[trackSelectionIndex];
         }
         // If the track does not exist print a warning message
-        if (!actionTracks[trackSelectionIndex])
+        else if (!actionTracks[trackSelectionIndex])
         {
             Debug.LogWarning("Track in slot " + trackSelectionIndex.ToString() + " does not exist");
         }
