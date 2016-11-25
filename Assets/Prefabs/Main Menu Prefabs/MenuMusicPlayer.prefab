@@ -68,12 +68,12 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.65
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuTracks:
+  - {fileID: 8300000, guid: 4809eb2e5607d7f44b186e6935bdeab7, type: 3}
   - {fileID: 8300000, guid: eb95cef3d92b9ff489ffbb5f64166b41, type: 3}
 --- !u!1001 &100100000
 Prefab:
