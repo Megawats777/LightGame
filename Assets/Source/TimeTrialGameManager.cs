@@ -142,6 +142,9 @@ public class TimeTrialGameManager : MonoBehaviour
     // Pause the game
     public void pauseGame()
     {
+        // Enable the mouse cursor
+        Cursor.visible = true;
+
         // Set the time scale to be 0
         Time.timeScale = 0.0f;
 
@@ -167,6 +170,9 @@ public class TimeTrialGameManager : MonoBehaviour
     // Unpause the game
     public void UnpauseGame()
     {
+        // Disable the mouse cursor
+        Cursor.visible = false;
+
         // Set the time scale to be 1
         Time.timeScale = 1.0f;
 
@@ -199,6 +205,9 @@ public class TimeTrialGameManager : MonoBehaviour
     // End the game
     public void endGame()
     {
+        // Enable the mouse cursor
+        Cursor.visible = true;
+
         // Set the game as not paused
         isGamePaused = false;
 

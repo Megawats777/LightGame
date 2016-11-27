@@ -110,6 +110,9 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Disable the mouse cursor
+        Cursor.visible = false;
+
         // Enable the fade image
         fadeImage.gameObject.SetActive(true);
 

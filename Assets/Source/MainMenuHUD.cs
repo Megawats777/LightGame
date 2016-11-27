@@ -39,6 +39,9 @@ public class MainMenuHUD : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        // Enable the mouse cursor
+        Cursor.visible = true;
+
         // Enable the fade out image
         fadeOutImage.gameObject.SetActive(true);
 
