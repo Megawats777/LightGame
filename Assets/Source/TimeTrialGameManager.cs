@@ -233,7 +233,7 @@ public class TimeTrialGameManager : MonoBehaviour
             checkMedalTargets();
 
             // Show game summary info group
-            timeTrialHUDManager.showGameSummaryHUD(clockLength.ToString(), lightCheckpointsRestored.ToString(), timeTrialHUDManager.medalMessage, null);
+            timeTrialHUDManager.showGameSummaryHUD(clockLength.ToString(), lightCheckpointsRestored.ToString(), timeTrialHUDManager.medalMessage, timeTrialHUDManager.getTargetMedalImage());
 
         }
 
@@ -257,6 +257,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
             // Show game summary info group
             timeTrialHUDManager.showGameSummaryHUD(clockLength.ToString(), lightCheckpointsRestored.ToString(), "No Medal Awarded", null);
+
+            // Show no medal image
+            timeTrialHUDManager.medalAwardedImage.gameObject.SetActive(false);
         }
 
         // Disable the player
@@ -273,6 +276,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
             // Set the medal awarded message
             timeTrialHUDManager.setMedalAwardedMessage(timeTrialHUDManager.goldMedalMessage);
+
+            // Set the target medal image
+            timeTrialHUDManager.setTargetMedalImage(timeTrialHUDManager.getGoldMedalImage());
         }
 
         // If the player earned a silver medal
@@ -282,6 +288,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
             // Set the medal awarded message
             timeTrialHUDManager.setMedalAwardedMessage(timeTrialHUDManager.silverMedalMessage);
+
+            // Set the target medal image
+            timeTrialHUDManager.setTargetMedalImage(timeTrialHUDManager.getSilverMedalImage());
         }
 
         // If the player earned a bronze medal
@@ -291,6 +300,9 @@ public class TimeTrialGameManager : MonoBehaviour
 
             // Set the medal awarded message
             timeTrialHUDManager.setMedalAwardedMessage(timeTrialHUDManager.bronzeMedalMessage);
+
+            // Set the target medal image
+            timeTrialHUDManager.setTargetMedalImage(timeTrialHUDManager.getBronzeMedalImage());
         }
 
         // Otherwise

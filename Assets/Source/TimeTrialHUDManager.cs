@@ -63,6 +63,13 @@ public class TimeTrialHUDManager : MonoBehaviour
     public string silverMedalMessage = "Silver Medal Awarded";
     public string bronzeMedalMessage = "Bronze Medal Awarded";
 
+    /*--Medal Images--*/
+    [Header("Medal Images")]
+    public Texture2D goldMedalImage;
+    public Texture2D silverMedalImage;
+    public Texture2D bronzeMedalImage;
+    private Texture2D targetMedalImage;
+
     [HideInInspector]
     public string medalMessage = null;
 
@@ -265,6 +272,36 @@ public class TimeTrialHUDManager : MonoBehaviour
 
         // Set the medal awarded image
         medalAwardedImage.texture = medalImage;
+    }
+
+    // Get the gold medal image
+    public Texture2D getGoldMedalImage()
+    {
+        return goldMedalImage;
+    }
+
+    // Get the silver medal image
+    public Texture2D getSilverMedalImage()
+    {
+        return silverMedalImage;
+    }
+
+    // Get the bronze medal image
+    public Texture2D getBronzeMedalImage()
+    {
+        return bronzeMedalImage;
+    }
+
+    // Get the target medal image
+    public Texture2D getTargetMedalImage()
+    {
+        return targetMedalImage;
+    }
+
+    // Set the target medal image
+    public void setTargetMedalImage(Texture2D newImage)
+    {
+        targetMedalImage = newImage;
     }
 
     // Close the game summary HUD

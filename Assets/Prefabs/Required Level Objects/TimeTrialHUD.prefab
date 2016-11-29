@@ -1481,7 +1481,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: ce1fb781c01d2eb49977780c77acd1d0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1775,6 +1775,9 @@ MonoBehaviour:
   goldMedalMessage: Gold Medal Awarded
   silverMedalMessage: Silver Medal Awarded
   bronzeMedalMessage: Bronze Medal Awarded
+  goldMedalImage: {fileID: 2800000, guid: 998da9fe0b6f9154595b218b581e9d76, type: 3}
+  silverMedalImage: {fileID: 2800000, guid: 9727bd533b3902542906eaf199dd502d, type: 3}
+  bronzeMedalImage: {fileID: 0}
   medalMessage: 
   clockTextGroup: {fileID: 120718}
   lightsRestoredGroup: {fileID: 108316}
@@ -2375,7 +2378,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 9727bd533b3902542906eaf199dd502d, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2515,7 +2518,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: ce1fb781c01d2eb49977780c77acd1d0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2541,7 +2544,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: 998da9fe0b6f9154595b218b581e9d76, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
