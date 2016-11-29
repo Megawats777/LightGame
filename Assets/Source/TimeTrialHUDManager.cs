@@ -145,6 +145,7 @@ public class TimeTrialHUDManager : MonoBehaviour
     // Enable all HUD objects
     private void enableAllHUDGroups()
     {
+        gameplayHUDGroup.SetActive(true);
         clockTextGroup.SetActive(true);
         lightsRestoredGroup.SetActive(true);
         finishTextGroup.SetActive(true);
