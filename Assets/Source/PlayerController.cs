@@ -73,6 +73,23 @@ public class PlayerController : MonoBehaviour
 
         // Control pause state
         controlPauseState();
+
+        // Control mouse cursor visibility in the editor
+        if (Application.isEditor)
+        {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                if (Cursor.visible)
+                {
+                    Cursor.visible = false;
+                }
+
+                else if (!Cursor.visible)
+                {
+                    Cursor.visible = true;
+                }
+            }
+        }
     }
 
     // Called before physics calculations
