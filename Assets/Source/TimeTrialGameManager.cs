@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class TimeTrialGameManager : MonoBehaviour
 {
     /*--Game Clock Properties--*/
@@ -10,13 +11,14 @@ public class TimeTrialGameManager : MonoBehaviour
     /*--Light Checkpoint Collection Properties*/
     [Header("Light Checkpoint Collection Properties")]
     public int lightCheckpointsRestored = 0;
-    private int lightCheckpointAmount = 0;
+    public int lightCheckpointAmount = 0;
 
     /*--Medal Targets--*/
     [Header("Medal Targets")]
     public int goldMedalTarget = 0;
     public int silverMedalTarget = 5;
     public int bronzeMedalTarget = 3;
+    public bool canOverideGoldMedalTarget = false;
 
     /*--Pause Properties--*/
     [Header("Pause Properties")]
@@ -30,6 +32,10 @@ public class TimeTrialGameManager : MonoBehaviour
 
     // Has the game started
     public bool hasGameStarted = false;
+
+    // Is in debug mode
+    [Header("Misc Properties")]
+    public bool isDebugMode = false;
 
     // Called before start
     public void Awake()
@@ -47,23 +53,38 @@ public class TimeTrialGameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Set the light checkpoint amount
-        setLightCheckpointAmount();
-
         // Update the game clock HUD
         timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
 
-        // Set the gold medal target to be the same as the light checkpoint amount
-        goldMedalTarget = lightCheckpointAmount;
-
-        // Update the medal target HUD
-        timeTrialHUDManager.updateMedalTargetHUD(goldMedalTarget.ToString(), silverMedalTarget.ToString(), bronzeMedalTarget.ToString());
+        // If the standalone player is running turn off debug mode
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            isDebugMode = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Set the light checkpoint amount
+        setLightCheckpointAmount();
 
+        // Set the gold medal target
+        setGoldMedalTarget();
+
+        // Update the medal target HUD
+        timeTrialHUDManager.updateMedalTargetHUD(goldMedalTarget.ToString(), silverMedalTarget.ToString(), bronzeMedalTarget.ToString());
+    }
+
+    // Set gold medal target
+    private void setGoldMedalTarget()
+    {
+        // If the developer cannot overide the gold medal target
+        if (!canOverideGoldMedalTarget)
+        {
+            // Set the gold medal target to be the same as the light checkpoint amount
+            goldMedalTarget = lightCheckpointAmount;
+        }
     }
 
     // Set the light checkpoint amount
@@ -72,7 +93,7 @@ public class TimeTrialGameManager : MonoBehaviour
         // For each game object with the tag "Checkpoint" increase the light checkpoint amount
         foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Checkpoint"))
         {
-            lightCheckpointAmount++;
+            lightCheckpointAmount = GameObject.FindGameObjectsWithTag("Checkpoint").Length;
         }
 
         // Update the lights restored HUD
@@ -82,17 +103,21 @@ public class TimeTrialGameManager : MonoBehaviour
     // Run the game clock
     private void runGameClock()
     {
-        // Decrement the clock length
-        clockLength--;
-
-        // Update the game clock HUD
-        timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
-
-        // If the clock length is 0
-        if (clockLength == 0)
+        // If the game is not in debug mode
+        if (!isDebugMode)
         {
-            // End the game
-            endGame();   
+            // Decrement the clock length
+            clockLength--;
+
+            // Update the game clock HUD
+            timeTrialHUDManager.updateGameClockHUD(clockLength.ToString());
+
+            // If the clock length is 0
+            if (clockLength == 0)
+            {
+                // End the game
+                endGame();
+            }
         }
     }
 

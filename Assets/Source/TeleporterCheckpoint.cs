@@ -4,13 +4,12 @@ using System.Collections;
 public class TeleporterCheckpoint : MonoBehaviour
 {
     // Reference to the teleporter nav point
-    private TeleporterNavPoint navPoint;
+    public TeleporterNavPoint navPoint;
 
     // Called before start
     public void Awake()
     {
-        // Get the teleporter navpoint
-        navPoint = GetComponentInChildren<TeleporterNavPoint>();
+        
     }
 
     // Use this for initialization
@@ -34,8 +33,16 @@ public class TeleporterCheckpoint : MonoBehaviour
             // Reference to the player
             PlayerController player = other.gameObject.GetComponent<PlayerController>();
 
-            // Teleport the player
-            player.gameObject.transform.position = navPoint.getNavPointLocation();
+            // If a nav point has been set
+            if (navPoint)
+            {
+                // Teleport the player
+                player.gameObject.transform.position = navPoint.getNavPointLocation();
+            }
+            else
+            {
+                Debug.Log("No nav point has been set for " + gameObject.name);
+            }
         }
     }
 }

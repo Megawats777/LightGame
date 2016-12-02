@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 412368}
   - 198: {fileID: 19877444}
   - 199: {fileID: 19976814}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SphereTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2390316}
   - 54: {fileID: 5489138}
   - 114: {fileID: 11488376}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PlayerSphere
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 471446}
   - 108: {fileID: 10850762}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: SphereLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.98, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 471446}
