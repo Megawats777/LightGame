@@ -41,7 +41,7 @@ public class TeleporterCheckpoint : MonoBehaviour
             }
             else
             {
-                Debug.Log("No nav point has been set for " + gameObject.name);
+                Debug.LogWarning("No nav point has been set for " + gameObject.name);
             }
         }
     }
