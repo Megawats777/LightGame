@@ -263,7 +263,7 @@ public class TimeTrialHUDManager : MonoBehaviour
         infoPanelTitle.text = "Game Over";
 
         // Set the content of the time remaining text
-        timeRemainingInfoText.text = timeRemainingSTR;
+        timeRemainingInfoText.text = timeRemainingSTR + " Seconds";
 
         // Set the content of the lights restored text
         lightsRestoredInfoText.text = lightsRestoredSTR;
