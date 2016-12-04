@@ -4809,7 +4809,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22457744, guid: 9644069273a22924cbf6455a4e173e1c, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22457744, guid: 9644069273a22924cbf6455a4e173e1c, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -9112,7 +9112,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 414572, guid: 9b158a15d7f92fc4bb94e0f8008d1c58, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b158a15d7f92fc4bb94e0f8008d1c58, type: 2}
@@ -32518,7 +32518,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 417016, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11430466, guid: d7e054bf91a508546a1d98a85e804719, type: 2}
       propertyPath: silverMedalTarget
@@ -36354,7 +36354,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 465356, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab016c4e2c0dd5642aa88ccd04b475ed, type: 2}
